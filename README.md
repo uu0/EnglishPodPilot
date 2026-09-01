@@ -34,13 +34,21 @@ englishpod/
 ├── docker/                   ← Docker 部署专属：Dockerfile + docker-compose.yml（在 docker/ 目录内执行 compose）
 ├── local/                    ← 本地直接运行专属：start.sh（终端）/ start.command（macOS 双击）
 ├── test/check.sh             ← 部署自检脚本：上传飞牛前后跑一次确认资源齐备（bash test/check.sh）
+├── screenshots/              ← 界面预览图（README 引用，含 4 张：首次部署/课程列表/播放器/管理后台）
 ├── config.json               ← 在线词典 API key / 代理配置（含密钥，勿提交 git）
 ├── template/                 ← 配置模板：config.example.json（字段与 config.json 一致，复制改名后填 key 即可用）
 ├── .dockerignore             ← 仅 Docker 构建用（必须位于构建上下文根目录，即项目根）
 └── README.md
 ```
 
-> 课程资料（音频/字幕/讲义）源自 [archive.org englishpod_all](https://archive.org/details/englishpod_all)，仅含公开学习材料。
+> **课程资料需自行下载后放入对应文件夹**（仓库 `.gitignore` 已排除 `data/` 内部数据，仅保留目录骨架占位 `.gitkeep`）：
+>
+> | 类型 | 来源仓库 | 放入目录 |
+> |---|---|---|
+> | **PDF 讲义** / **SRT 字幕** / **TXT 文本** | [github.com/guaguaguaxia/english_pod](https://github.com/guaguaguaxia/english_pod) | `data/pdf/` `data/srt/` `data/txt/` |
+> | **MP3 音频**（约 5.2G，1,197 个文件） | [archive.org/details/englishpod_all](https://archive.org/details/englishpod_all) | `data/audio/` |
+>
+> 两份原始资料均**只含公开学习材料**。离线英汉词典（`data/dict/ecdict.csv`）需单独下载，见「八、配置文件 → 离线英汉词典」一节。
 
 ### 每种运行方式需要哪些文件
 
@@ -60,7 +68,15 @@ englishpod/
 
 > 两种方式共用同一份 `server.py` / `webapp/` / `data/`；区分点只在启动层：Docker 用 `docker/` 下的构建与编排文件，本地用 `local/` 下的启动脚本（或直接命令行）。
 
-## 三、飞牛部署步骤（数据放宿主机文件夹，compose 写路径读取）
+## 三、界面预览
+
+| 首次部署引导 | 课程列表 |
+|---|---|
+| ![首次部署：创建管理员](screenshots/01-setup.png) | ![课程列表：467 课、搜索、筛选、进度](screenshots/02-lessons.png) |
+| 播放器（音频 + 字幕） | 管理后台·学习工作台 |
+| ![播放器：标签页、字幕时间轴、A-B 复读](screenshots/03-player.png) | ![管理后台：每用户学习时长/完成课程/生词数](screenshots/04-admin.png) |
+
+## 四、飞牛部署步骤（数据放宿主机文件夹，compose 写路径读取）
 
 ### 1. 在飞牛建立文件夹并上传
 
@@ -128,7 +144,7 @@ docker compose down          # 停止
 
 `restart: unless-stopped` 已配置，飞牛重启后自动拉起。
 
-## 四、免 Docker 直接运行（本地 / 任意 Linux / macOS）
+## 五、免 Docker 直接运行（本地 / 任意 Linux / macOS）
 
 只要机器装了 Python 3.7+，不用 Docker 也能跑：
 
@@ -142,7 +158,7 @@ python3 server.py --data ./data --host 0.0.0.0 --port 8787
 - 用 `nohup ... &` 或 systemd / 飞牛「计划任务」让它后台常驻。
 - macOS 用户可直接**双击 `local/start.command`** 一键启动并自动打开浏览器（Linux/macOS 也可用 `bash local/start.sh`）。
 
-## 五、多用户：首次部署、登录与后台管理
+## 六、多用户：首次部署、登录与后台管理
 
 - **首次部署**：第一次打开 http://飞牛IP:8787/ 会显示「创建管理员」引导界面，设置管理员用户名与密码后自动登录。
 - **登录**：之后每次打开页面要求登录；账号由管理员分配，**不支持自助注册**。
@@ -160,11 +176,11 @@ python3 server.py --data ./data --host 0.0.0.0 --port 8787
   ```
 - **旧版（无多用户）数据自动迁移**：首次登录时若服务端还没有该用户的进度，会自动把浏览器 localStorage 里的旧进度/生词一次性迁移上传，不丢失。
 
-## 六、课程分类：只按课号，不按难度
+## 七、课程分类：只按课号，不按难度
 
 课程不区分难度等级，左侧课单直接按课号（标准课程 0001~0365，另有 DC / TJI 系列）排列与筛选，搜索框输入课号即可快速定位。若你确实需要难度标签，可自行维护数据（不内置，避免误导）。
 
-## 七、配置文件 config.json（词典与代理）
+## 八、配置文件 config.json（词典与代理）
 
 ```json
 {
@@ -205,14 +221,14 @@ python3 server.py --data ./data --host 0.0.0.0 --port 8787
 
 > `config.json` 含密钥，请勿提交到 git（已加入 `.gitignore`）。
 
-## 八、迁移到新机器
+## 九、迁移到新机器
 
 1. 复制整个项目目录 `englishpod/`（含 `data/` 全部离线资源）到新机器。
 2. 无需改任何路径：离线资源、配置都随目录走，`cd docker && docker compose up -d --build` 即可（或 `python3 server.py --data ./data`）。
 3. 若只想迁移代码不带词典：可删除 `data/dict/ecdict.db`（构建产物），保留 `ecdict.csv` 即可，服务首启自动重建索引。
 4. 用户与学习数据都在 `data/appdata/app.db` 里一并迁移。
 
-## 九、常见问题
+## 十、常见问题
 
 - **ecdict.db 可以删吗？** 可以。它是 `ecdict.csv` 生成的 SQLite 索引（约 113M），删掉后服务首启自动重建（约 1 分钟）；也可提前在本地跑一次服务生成再随包上传，减少飞牛首次等待。
 - **课程文件能只读吗？** 课程目录挂载为 `:ro` 只读，应用仅流式读取、绝不改动资料。
