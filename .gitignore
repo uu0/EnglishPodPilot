@@ -5,6 +5,10 @@ config.json
 __pycache__/
 *.pyc
 
+# 运行时用户数据（进度/多用户数据库）
+app.db
+app.db-*
+
 # macOS
 .DS_Store
 
