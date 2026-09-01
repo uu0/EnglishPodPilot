@@ -1,0 +1,24 @@
+# 含 API 密钥，禁止提交
+config.json
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# 离线资源数据：只保留 data/ 目录骨架，数据文件一律不入库
+# （audio/srt/txt/pdf/dict/appdata 各目录用 .gitkeep 占位保留结构）
+data/audio/*
+data/srt/*
+data/txt/*
+data/pdf/*
+data/dict/*
+data/appdata/*
+!data/audio/.gitkeep
+!data/srt/.gitkeep
+!data/txt/.gitkeep
+!data/pdf/.gitkeep
+!data/dict/.gitkeep
+!data/appdata/.gitkeep

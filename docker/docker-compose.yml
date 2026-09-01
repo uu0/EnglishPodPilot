@@ -1,0 +1,35 @@
+services:
+  englishpod:
+    # 本 compose 位于 docker/ 子目录：构建上下文指向项目根（..），
+    # Dockerfile 用相对上下文的 docker/Dockerfile；在 docker/ 目录内执行 compose 即可
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: englishpod-web:latest
+    container_name: englishpod-web
+    ports:
+      - "8787:8787"
+    volumes:
+      # 课程资料（音频/字幕/文本/PDF）：只读挂载，应用仅流式读取，防止误改。
+      # 相对路径基于本 compose 所在目录（docker/），../data 即项目根 data/；
+      # 若你在飞牛把课程资料单独建了共享文件夹，逐个改成绝对路径即可，例如：
+      #   - /vol1/1000/media/english_pod/audio:/data/audio:ro
+      - ../data/audio:/data/audio:ro
+      - ../data/srt:/data/srt:ro
+      - ../data/txt:/data/txt:ro
+      - ../data/pdf:/data/pdf:ro
+      # 离线词典（ECDICT）：可写挂载。首次启动需要在此生成 ecdict.db 索引；
+      # 若词典也单独放一个文件夹，同样把左侧换成飞牛绝对路径，例如：
+      #   - /vol1/1000/dict/ecdict:/data/dict
+      - ../data/dict:/data/dict
+      # 多用户数据（账号/进度/生词本/学习时长）：SQLite 持久化，必须可写；
+      # 用户账号、进度与生词本都存这里，删容器不丢数据。
+      - ../data/appdata:/data/appdata
+      # 词典 API key / 代理配置（含密钥，用卷挂载而非打进镜像；保留在宿主机，勿提交到 git）
+      - ../config.json:/app/config.json:ro
+    environment:
+      - EP_DATA_DIR=/data
+      - EP_APP_DB=/data/appdata/app.db
+      - EP_HOST=0.0.0.0
+      - EP_PORT=8787
+    restart: unless-stopped

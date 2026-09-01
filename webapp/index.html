@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="BMyK6LQCXDkO6YDyhCbY6e">
+<head data-page-node-id="0dOuo9bEZ7StVfGEPrZXZ2">
+  <meta charset="UTF-8" data-page-node-id="kSf4fwXfZCXlrv51Y2Roij" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="A9mhESK2L2MPSMLEz3P3Hs" />
+  <title>English Pod 学习器</title>
+  <link rel="stylesheet" href="style.css" data-page-node-id="SaSaWLm7LPVQcAXNajwcuX" />
+</head>
+<body data-page-node-id="eJ3aMxMIBnNJmahDioNTpg">
+  <header class="topbar" data-page-node-id="Ox9AXhXGG6iwXSjtEu4kyN">
+    <button id="menuBtn" class="menu-btn" aria-label="课单" title="课单">☰</button>
+    <div class="brand" data-page-node-id="O66w95aDrhHnNIrvk0TEqI">🎧 English&nbsp;Pod 学习器</div>
+    <div class="search" data-page-node-id="ut8iH1EDB8GQV4FwHzfrEQ">
+      <input id="search" type="text" placeholder="搜索课号，如 0001 / DC / TJI" autocomplete="off" data-page-node-id="S6ABxkR6zBGEfjnwgd0Dc6" />
+    </div>
+    <div class="filters" id="filters" data-page-node-id="gGTKNfmBHss2N3oB2ZSYcG">
+      <button data-filter="all" class="active" data-page-node-id="IuT4Q3iXlFViF7rXOSIWmV">全部</button>
+      <button data-filter="standard" data-page-node-id="kXsBC1n43nqSwbzvOiahE5">标准课程</button>
+      <button data-filter="DC" data-page-node-id="qDJ4vt9VtEAQMKwJi3ktPk">DC 系列</button>
+      <button data-filter="TJI" data-page-node-id="CzwurE20ddIFwgG3yx6YCB">TJI 系列</button>
+    </div>
+    <div class="progress" id="progress" data-page-node-id="vYJD1fnXBPpB2Mjz6zP22M">已完成 0 / 0</div>
+    <div class="userbox" id="userBox"></div>
+    <button id="themeBtn" class="theme-btn" title="切换日间/夜间模式" data-page-node-id="wIU3KGl2GMedfQ9aEGMAIZ">🌙</button>
+  </header>
+
+  <main data-page-node-id="V9oFAIHYhPs4vN2UCQTDsX">
+    <aside id="sidebar" class="sidebar" data-page-node-id="n4kH0wVJgg62bmqsXWe2sU">
+      <ul id="lessonList" data-page-node-id="vQdTxCEiUd1odHvXK3Y2md"></ul>
+      <div id="listEmpty" class="list-empty hidden" data-page-node-id="VAuVksRxUehpdoyVpKsBFt">没有匹配的课程</div>
+    </aside>
+
+    <section class="content" data-page-node-id="M1SW7nF6kfiosY2HIL3O6R">
+      <div id="emptyState" class="empty" data-page-node-id="wGv00QJVeOtFTvEKUITCb3">← 从左侧选择一节课开始学习</div>
+
+      <div id="lessonView" class="hidden" data-page-node-id="APizmZjQW37LLE2ntvGOlB">
+        <div class="lesson-head" data-page-node-id="NQcByOApw09ZLoZQi2hZWY">
+          <div class="head-left" data-page-node-id="I3iuzCKVqG0ebgTsaqUMjk">
+            <h1 id="lessonTitle" data-page-node-id="tfxRj1DjEPWGA1vOctWroX"></h1>
+            <div class="badges" id="lessonBadges" data-page-node-id="TwBlzK4C22jqzgGZ3RcnPS"></div>
+          </div>
+          <div class="head-actions" data-page-node-id="14A0W0Q4HfOz4niW5VZ2sP">
+            <button id="prevBtn" class="btn-ghost" data-page-node-id="bvfAFA25PqiEJaQR3AmTjw">← 上一课</button>
+            <button id="nextBtn" class="btn-ghost" data-page-node-id="zfLwDwkELuGNZxB0vHVCkT">下一课 →</button>
+            <button id="completeBtn" class="btn-complete" data-page-node-id="jM0lW25IFlSDOcnCTItG4u">✓ 标记完成</button>
+          </div>
+        </div>
+
+        <div class="player-card" data-page-node-id="cUv3PI0JxFh6JWgTmwHgHY">
+          <div class="track-tabs" id="trackTabs" data-page-node-id="HUxNGwarU90WMVQEaIHE5W"></div>
+        </div>
+
+        <div class="tabs" id="tabs" data-page-node-id="64cFJWV4v5GjVvmwyiWQsR">
+          <button data-tab="subtitle" class="active" data-page-node-id="N104LTtpqyvGV8oFxkFPfN">字幕</button>
+          <button data-tab="transcript" data-page-node-id="6noQIPiU2AJY3V8AuX17Hb">文本</button>
+          <button data-tab="pdf" data-page-node-id="dfgXHkPyprItj2GEG2RC1b">PDF 文档</button>
+          <button data-tab="vocab" data-page-node-id="BN1APSNDpaNvl0POjieQ1C">生词本</button>
+        </div>
+
+        <div class="tab-body" data-page-node-id="gj1LEmFncW7RhLHqMVhE8u">
+          <div id="subtitlePanel" class="panel" data-page-node-id="CA3GGXhM1H3TKUF2LBFcXB"></div>
+          <div id="transcriptPanel" class="panel hidden" data-page-node-id="mRv0sRJ2itCtAXMFigWZ9M"></div>
+          <div id="pdfPanel" class="panel hidden" data-page-node-id="tqtDq4bBFVtGilJxJDHw0h">
+            <div class="pdf-toolbar" data-page-node-id="KhbUGLFCpzS2DXll2OHNFN">
+              <a id="pdfOpen" target="_blank" rel="noopener" data-page-node-id="NiQnXmmiS9snW6RhK3iY5k">↗ 新标签页打开 PDF</a>
+              <span class="pdf-hint" data-page-node-id="MyJq0BOzuILUTOB9g7vjHq">若 PDF 不显示，请点击上方链接用浏览器打开</span>
+            </div>
+            <iframe id="pdfFrame" title="PDF 文档" data-page-node-id="UXtHxpwCE4QRziq6ZJMLZQ"></iframe>
+          </div>
+          <div id="vocabPanel" class="panel hidden" data-page-node-id="pvHQpH4GPntRgAWCfHr8WT"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 底部悬浮播放控制条（选中课程后显示） -->
+  <div id="playerBar" class="player-bar hidden">
+    <audio id="audio" preload="metadata"></audio>
+    <div class="controls">
+      <button id="playBtn" class="play-btn" aria-label="播放/暂停">▶</button>
+      <span id="curTime" class="time">00:00</span>
+      <input id="seek" class="seek" type="range" min="0" max="1000" value="0" step="1" />
+      <span id="durTime" class="time">00:00</span>
+      <select id="speed" title="播放速度">
+        <option value="0.5">0.5×</option>
+        <option value="0.75">0.75×</option>
+        <option value="1" selected>1.0×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="2">2.0×</option>
+      </select>
+      <button id="abBtn" class="btn-ab" title="设置 A-B 区间循环复读">A-B 复读</button>
+      <span id="abState" class="ab-state"></span>
+    </div>
+  </div>
+
+  <div id="drawerBackdrop" class="drawer-backdrop hidden"></div>
+  <div id="wordPopup" class="word-popup" data-page-node-id="GWuPlaYIhNuSMlBKCu7stT"></div>
+  <input type="file" id="vocabImport" accept="application/json" hidden data-page-node-id="FPrKwIniS6d3DuqX1y5fEl" />
+
+  <!-- 登录 / 首次部署设置向导 -->
+  <div id="authModal" class="auth-modal hidden">
+    <div class="auth-card">
+      <div id="authTitle" class="auth-brand">🎧 English Pod 学习器</div>
+      <p id="authSub" class="auth-sub"></p>
+      <input id="authUser" class="auth-input" type="text" placeholder="用户名" autocomplete="username" />
+      <input id="authPass" class="auth-input" type="password" placeholder="密码" autocomplete="current-password" />
+      <button id="authBtn" class="auth-btn">登录</button>
+      <div id="authErr" class="auth-err"></div>
+    </div>
+  </div>
+
+  <!-- 管理员后台 -->
+  <div id="adminModal" class="auth-modal hidden">
+    <div class="admin-card">
+      <div class="admin-head">
+        <div class="auth-brand">⚙️ 管理后台</div>
+        <button id="adminClose" class="btn-ghost">✕</button>
+      </div>
+      <div class="admin-tabs">
+        <button data-atab="users" class="atab active">👥 用户管理</button>
+        <button data-atab="stats" class="atab">📊 学习工作台</button>
+      </div>
+      <div id="adminUsers" class="admin-body"></div>
+      <div id="adminStats" class="admin-body hidden"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

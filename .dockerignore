@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+.git/
+
+# 离线资源（课程 5GB+ / 词典）通过卷挂载进容器，不进镜像——
+# 否则 docker build 会把整个 data/ 打进构建上下文，构建极慢且镜像臃肿
+data/
