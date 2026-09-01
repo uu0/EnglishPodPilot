@@ -6,7 +6,7 @@ English Pod 学习网页 - 本地媒体服务器
 仅使用 Python 标准库，无需安装任何依赖。
 
 功能:
-  1. 扫描 ~/Downloads/english_pod-master 目录，构建课程索引
+  1. 扫描脚本同目录 data/ 子目录（audio/srt/txt/pdf），构建课程索引
   2. /api/lessons        -> 返回课程索引 (JSON)
   3. /media/<相对路径>    -> 流式传输音频/字幕/文本/PDF，支持 HTTP Range (拖动进度必需)
   4. 静态前端 (webapp/)   -> index.html / app.js / style.css
@@ -38,10 +38,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 # ----------------------------------------------------------------------------
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(SCRIPT_DIR, "webapp")
-# 默认数据目录：部署包布局 ~/Downloads/englishpod/data
-# （离线资源统一放项目目录下的 data/ 子目录：audio/ srt/ txt/ pdf/ dict/；
-#   可用 --data / EP_DATA_DIR 覆盖）
-DEFAULT_DATA_DIR = os.path.expanduser("~/Downloads/englishpod/data")
+# 默认数据目录：脚本所在目录下的 data/（离线资源统一放项目目录下的 data/ 子目录：
+# audio/ srt/ txt/ pdf/ dict/；可用 --data / EP_DATA_DIR 覆盖）
+DEFAULT_DATA_DIR = os.path.join(SCRIPT_DIR, "data")
 
 # 音轨后缀 -> 中文标签
 TRACK_LABELS = {
