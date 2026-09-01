@@ -35,6 +35,7 @@ englishpod/
 ├── local/                    ← 本地直接运行专属：start.sh（终端）/ start.command（macOS 双击）
 ├── test/check.sh             ← 部署自检脚本：上传飞牛前后跑一次确认资源齐备（bash test/check.sh）
 ├── config.json               ← 在线词典 API key / 代理配置（含密钥，勿提交 git）
+├── template/                 ← 配置模板：config.example.json（字段与 config.json 一致，复制改名后填 key 即可用）
 ├── .dockerignore             ← 仅 Docker 构建用（必须位于构建上下文根目录，即项目根）
 └── README.md
 ```
