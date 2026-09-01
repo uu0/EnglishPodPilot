@@ -235,3 +235,4 @@ python3 server.py --data ./data --host 0.0.0.0 --port 8787
 - **学习进度会丢吗？** 不会。进度与生词本存在服务端（`data/appdata/app.db`），换浏览器、换设备登录同一账号都能看到；只有界面主题与词典缓存是浏览器本地的。
 - **升级旧版（无多用户）会丢进度吗？** 不会。旧版数据在浏览器 localStorage，首次登录时若服务端还没有该用户的进度，会自动把本机 localStorage 的旧进度/生词一次性迁移上传。
 - **docker compose 报构建上下文太大？** 已配置 `.dockerignore` 排除 `data/`，构建上下文仅约 0.1M，不会把 5.2G 资料打进镜像。
+- **飞牛 Docker UI 部署报 `pull access denied for englishpod-web`？** 这是正常现象：镜像从未发布到仓库，UI 只会拉镜像、不会现场构建。请用 SSH 进入飞牛，在项目根目录执行 `docker compose -f docker/docker-compose.yml up -d --build` 现场构建（首次需联网拉取 `python:3.13-slim`）。构建成功后容器即可在 UI 中看到并管理；日常重启/改配置用 UI 或 `docker compose restart` 均可，无需重新构建。注意：上传到飞牛时务必包含隐藏文件 `.dockerignore`（文件管理器默认不显示隐藏文件，容易漏传，漏传会导致构建上下文达 5.2G）。
