@@ -1,11 +1,12 @@
 services:
   englishpod:
-    # 本 compose 位于 docker/ 子目录：构建上下文指向项目根（..），
-    # Dockerfile 用相对上下文的 docker/Dockerfile；在 docker/ 目录内执行 compose 即可
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
-    image: englishpod-web:latest
+    # 默认从 Docker Hub 拉取镜像（无需现场构建）：
+    #   suncean/englishpod-web:latest  ← GitHub Actions 每次 push main 自动构建推送
+    # 需要自己现场构建时：把下面 build 段取消注释（构建上下文为项目根 ..）即可
+    # build:
+    #   context: ..
+    #   dockerfile: docker/Dockerfile
+    image: suncean/englishpod-web:latest
     container_name: englishpod-web
     ports:
       - "8787:8787"
