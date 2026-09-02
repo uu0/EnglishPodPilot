@@ -489,8 +489,12 @@ main { flex: 1; display: flex; min-height: 0; }
 .word-popup {
   position: absolute;
   z-index: 1000;
-  max-width: 320px;
+  max-width: min(400px, calc(100vw - 12px));
   min-width: 160px;
+  /* 词条/释义过长时弹窗内部滚动，保证底部按钮始终可达 */
+  max-height: min(72vh, 540px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--border);
@@ -500,8 +504,10 @@ main { flex: 1; display: flex; min-height: 0; }
   font-size: 14px;
   display: none;
 }
+.word-popup::-webkit-scrollbar { width: 8px; }
+.word-popup::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 .word-popup.show { display: block; }
-.wp-word { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+.wp-word { font-weight: 700; font-size: 16px; margin-bottom: 4px; word-break: break-word; line-height: 1.35; }
 .wp-def { line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
 .wp-meta { margin-top: 6px; font-size: 12px; color: var(--muted); }
 .wp-input {
@@ -516,7 +522,16 @@ main { flex: 1; display: flex; min-height: 0; }
   color: var(--text);
 }
 .wp-input:focus { border-color: var(--accent); }
-.wp-actions { display: flex; gap: 8px; margin-top: 8px; }
+.wp-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  /* 释义过长时按钮吸底常驻可见，无需滚到弹窗最底部 */
+  position: sticky;
+  bottom: 0;
+  padding-top: 6px;
+  background: var(--surface);
+}
 .wp-actions button {
   flex: 1;
   padding: 7px;
@@ -565,6 +580,33 @@ main { flex: 1; display: flex; min-height: 0; }
   cursor: pointer;
 }
 .wp-sug-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* 单词/词组查询条（词典标签页上方；输入词组如 give up 可整体查询） */
+.wp-qbar { display: flex; gap: 6px; margin-top: 2px; }
+.wp-qbar + .wp-dict-tabs { margin-top: 6px; }
+.wp-qinput {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+.wp-qinput:focus { border-color: var(--accent); }
+.wp-qgo {
+  flex-shrink: 0;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+.wp-qgo:hover { border-color: var(--accent); color: var(--accent); }
 
 /* 词典标签页（学习词典 / 大学词典 / 英汉词典） */
 .wp-dict-tabs {

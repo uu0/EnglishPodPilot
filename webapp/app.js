@@ -136,6 +136,37 @@
     }).join("") + "</div>";
   }
 
+  // 查询条：输入框 + 查询按钮，默认值为当前词；可手动改成任意单词或词组（如 give up）回车重查。
+  // 词组判断：查不到时的兜底词典优先级见 doQuery 中的自动切换逻辑。
+  function dictHeadHtml(word, activeId) {
+    return '<div class="wp-qbar">' +
+      '<input id="wpQ" class="wp-qinput" value="' + escapeHtml(word) + '" ' +
+      'placeholder="查单词或词组，如 give up" spellcheck="false" autocomplete="off" />' +
+      '<button id="wpQGo" class="wp-qgo" type="button">查询</button></div>' +
+      dictTabsHtml(activeId);
+  }
+
+  function bindQueryBar() {
+    var q = $("wpQ"), go = $("wpQGo");
+    if (!q || !go) return;
+    function doQuery() {
+      var v = (q.value || "").trim().toLowerCase();
+      if (!v) return;
+      if (v === popupWord) { q.value = popupWord; return; } // 相同词不做重复查询
+      popupWord = v;
+      // 词组（含空格）优先用离线英汉词典：ECDICT 内置 36 万词组词头，覆盖比在线 learners 全
+      if (popupDict === "learners" && v.indexOf(" ") >= 0) popupDict = "ecdict";
+      var inp = $("wpInput");
+      if (inp) inp.value = ""; // 换了查询词，清掉旧词自动释义，等新结果回填
+      initDictBox(popupWord, popupDict);
+    }
+    go.onclick = function (e) { e.stopPropagation(); doQuery(); };
+    q.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); doQuery(); }
+      else if (e.key === "Escape") { e.stopPropagation(); hidePopup(); }
+    });
+  }
+
   function sugBtns(words, dictId) {
     return words.map(function (s) {
       return '<button class="wp-sug-btn" data-dict="' + dictId + '" data-w="' + escapeHtml(s) + '">' +
@@ -155,7 +186,7 @@
       return '<div class="wp-note">未找到精确匹配，您是否想查：</div>' +
         '<div class="wp-sug">' + sugBtns(res.suggestions.slice(0, 12), dictId) + "</div>";
     }
-    if (!res.defs || !res.defs.length) return '<span class="wp-note">未找到释义。</span>';
+    if (!res.defs || !res.defs.length) return '<span class="wp-note">未找到释义。可修改上方查询框重查其他单词或词组。</span>';
     var html = "";
     if (res.phonetic) html += '<div class="wp-phon">/' + escapeHtml(res.phonetic) + "/</div>";
     res.defs.forEach(function (d) {
@@ -195,25 +226,22 @@
     return html;
   }
 
-  // 在弹窗里初始化词典区（含标签页）。manualDef 为用户自存的手动释义（若有）。
+  // 在弹窗里初始化词典区（含查询条 + 标签页）。manualDef 为用户自存的手动释义（若有）。
   function initDictBox(word, dictId, manualDef) {
     popupWord = word;
     popupDict = dictId;
     var box = $("wpDict");
     if (!box) return;
-    box.innerHTML = dictTabsHtml(dictId) + '<div class="wp-dict-body">' +
+    box.innerHTML = dictHeadHtml(word, dictId) + '<div class="wp-dict-body">' +
       (manualDef ? '<div class="wp-manual">📝 手动释义：' + escapeHtml(manualDef) + "</div>" : "") +
       '<span class="wp-loading">查询释义中…</span></div>';
+    bindQueryBar();
     fillDictTab(word, dictId);
   }
 
   function switchDictTab(dictId) {
     if (!popupWord) return;
-    popupDict = dictId;
-    var box = $("wpDict");
-    if (!box) return;
-    box.innerHTML = dictTabsHtml(dictId) + '<div class="wp-dict-body"><span class="wp-loading">查询释义中…</span></div>';
-    fillDictTab(popupWord, dictId);
+    initDictBox(popupWord, dictId); // 重建查询条 + 标签页 + 内容（manual 释义不跨 tab 保留，与旧行为一致）
   }
 
   function fillDictTab(word, dictId) {
@@ -534,7 +562,11 @@
         }
       }
     });
-    window.addEventListener("scroll", hidePopup, true);
+    // 滚动时隐藏弹窗，但弹窗自身内部滚动除外（防止长释义滚动时按钮被误关）
+    window.addEventListener("scroll", function (e) {
+      if (e.target && (e.target === popup || popup.contains(e.target))) return;
+      hidePopup();
+    }, true);
   }
 
   // ---------- 列表 ----------
@@ -771,19 +803,23 @@
   }
   function showDef(sp) {
     var w = sp.dataset.w, v = vocab[w];
+    popupWord = w;
+    // 词组词条默认落英汉词典（离线词组库最全），普通单词默认学习词典
+    popupDict = w.indexOf(" ") >= 0 ? "ecdict" : "learners";
     lastPopupSp = sp;
     popup.innerHTML =
-      '<div class="wp-word">' + escapeHtml(w) + "</div>" +
       '<div id="wpDict" class="wp-dict"></div>' +
       (v.example ? '<div class="wp-example">📌 ' + escapeHtml(v.example) + "</div>" : "") +
       (v.lesson ? '<div class="wp-meta">来自 ' + escapeHtml(v.lesson) + "</div>" : "") +
       '<div class="wp-actions"><button id="wpEdit">编辑释义</button></div>';
     openPopup(sp);
-    initDictBox(w, "learners", v.def || "");
+    initDictBox(popupWord, popupDict, v.def || "");
     $("wpEdit").onclick = function () { showAdd(sp); };
   }
   function showAdd(sp) {
     var w = sp.dataset.w;
+    popupWord = w;
+    popupDict = w.indexOf(" ") >= 0 ? "ecdict" : "learners"; // 词组优先英汉词典，单词默认学习词典
     var existing = vocab[w];
     var example, cueStart, lessonId;
     if (existing) {
@@ -804,22 +840,21 @@
     var ctx = { example: example, cueStart: cueStart, lesson: lessonId };
     lastPopupSp = sp;
     popup.innerHTML =
-      '<div class="wp-word">' + escapeHtml(w) + "</div>" +
-      (example ? '<div class="wp-example">📌 ' + escapeHtml(example) + "</div>" : "") +
       '<div id="wpDict" class="wp-dict"></div>' +
-      '<input id="wpInput" class="wp-input" placeholder="可编辑后保存到生词本…" />' +
+      (example ? '<div class="wp-example">📌 ' + escapeHtml(example) + "</div>" : "") +
+      '<input id="wpInput" class="wp-input" placeholder="可编辑释义后保存到生词本…" />' +
       '<div class="wp-actions"><button id="wpSave">保存到生词本</button><button id="wpCancel">取消</button></div>';
     openPopup(sp);
     var inp = $("wpInput");
     if (existing) inp.value = existing.def || "";
     else inp.focus();
     inp.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") { commitAdd(w, inp.value, ctx); }
+      if (e.key === "Enter") { commitAdd(popupWord, inp.value, ctx); }
       else if (e.key === "Escape") { hidePopup(); }
     });
-    $("wpSave").onclick = function () { commitAdd(w, inp.value, ctx); };
+    $("wpSave").onclick = function () { commitAdd(popupWord, inp.value, ctx); };
     $("wpCancel").onclick = hidePopup;
-    initDictBox(w, "learners");
+    initDictBox(popupWord, popupDict);
   }
   function commitAdd(w, def, ctx) {
     ctx = ctx || {};
@@ -845,10 +880,17 @@
     popup.onmouseleave = scheduleHide;
   }
   function positionPopup(sp) {
+    if (!sp) return;
     var r = sp.getBoundingClientRect();
-    var x = Math.max(8, window.scrollX + r.left);
-    var y = window.scrollY + r.top - popup.offsetHeight - 8;
-    if (r.top < popup.offsetHeight + 24) y = window.scrollY + r.bottom + 8;
+    var pw = popup.offsetWidth || 200;
+    var ph = popup.offsetHeight || 200;
+    // 水平：left 对齐单词，向左右 clamp 保证弹窗不超出视口
+    var x = window.scrollX + r.left;
+    x = Math.max(8, Math.min(x, window.scrollX + window.innerWidth - pw - 8));
+    // 垂直：优先单词上方；上方放不下则下方；最后 clamp 进视口（内容超高时弹窗内部滚动）
+    var y = window.scrollY + r.top - ph - 8;
+    if (y < window.scrollY + 8) y = window.scrollY + r.bottom + 8;
+    y = Math.max(window.scrollY + 8, Math.min(y, window.scrollY + window.innerHeight - ph - 8));
     popup.style.left = x + "px";
     popup.style.top = y + "px";
   }
