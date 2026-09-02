@@ -522,7 +522,7 @@ def build_index(data_dir):
             "title": ("第 " + lid + " 课") if les["series"] == "standard" else lid,
             "tracks": ordered,
             "defaultTrack": default_track,
-            "subtitleTrack": SUBTITLE_TRACK if les["srt"] else None,
+            "subtitleTrack": default_track if les["srt"] else None,
             "srt": les["srt"],
             "txt": les["txt"],
             "pdf": les["pdf"],
