@@ -89,8 +89,28 @@
         <option value="1.5">1.5×</option>
         <option value="2">2.0×</option>
       </select>
+      <button id="loopBtn" class="btn-ab" title="循环模式：顺序播放（播完停止）">⏹</button>
+      <span id="loopState" class="ab-state"></span>
+      <button id="sleepBtn" class="btn-ab" title="定时停止播放">⏱ 定时</button>
+      <span id="sleepState" class="ab-state"></span>
       <button id="abBtn" class="btn-ab" title="设置 A-B 区间循环复读">A-B 复读</button>
       <span id="abState" class="ab-state"></span>
+    </div>
+    <div id="sleepPanel" class="sleep-panel hidden">
+      <div class="sleep-title">⏱ 定时停止播放（到点自动暂停）</div>
+      <div class="sleep-chips">
+        <button data-min="10">10 分钟</button>
+        <button data-min="20">20 分钟</button>
+        <button data-min="30">30 分钟</button>
+        <button data-min="45">45 分钟</button>
+        <button data-min="60">60 分钟</button>
+        <button data-min="90">90 分钟</button>
+      </div>
+      <div class="sleep-custom">
+        <input id="sleepMin" type="number" min="1" max="600" placeholder="自定义分钟" />
+        <button id="sleepStart" class="sleep-start">开始</button>
+      </div>
+      <button id="sleepCancel" class="sleep-cancel hidden">取消定时</button>
     </div>
   </div>
 

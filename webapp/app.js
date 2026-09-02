@@ -17,6 +17,10 @@
   var vocab = loadJSON("ep_vocab", {});
   var lastLesson = localStorage.getItem("ep_last");
   var theme = localStorage.getItem("ep_theme") || "light";
+  // 播放控制：循环模式（off 顺序停止 / all 列表循环 / one 单课循环 / shuffle 随机）
+  var loopMode = localStorage.getItem("ep_loop") || "off";
+  var sleepEndAt = 0;      // 定时停止的截止时间戳（ms），0 = 未激活
+  var sleepTimer = null;   // 每秒倒计时的 interval
 
   // ---------- 多用户认证状态 ----------
   var token = localStorage.getItem("ep_token") || "";
@@ -502,6 +506,7 @@
   }
   function init() {
     applyTheme(theme);
+    renderLoop();
     bindEvents();
     boot();
     // 生词弹窗：点击空白处 / 滚动时隐藏
@@ -1071,6 +1076,117 @@
     else el.textContent = fmt(abLoop.a) + " ~ " + fmt(abLoop.b);
   }
 
+  // ---------- 循环 / 连播控制 ----------
+  var LOOP_MODES = [
+    { id: "off", icon: "⏹", label: "", title: "顺序播放：播放完当前课停止" },
+    { id: "all", icon: "🔁", label: "列表循环", title: "列表循环：按列表顺序连播，末尾回到开头" },
+    { id: "one", icon: "🔂", label: "单课循环", title: "单课循环：反复播放当前课" },
+    { id: "shuffle", icon: "🔀", label: "随机播放", title: "随机播放：随机连播列表中的课程" }
+  ];
+  function loopInfo(mode) {
+    for (var i = 0; i < LOOP_MODES.length; i++) if (LOOP_MODES[i].id === mode) return LOOP_MODES[i];
+    return LOOP_MODES[0];
+  }
+  function renderLoop() {
+    var info = loopInfo(loopMode);
+    var btn = $("loopBtn");
+    if (!btn) return;
+    btn.textContent = info.icon;
+    btn.title = info.title;
+    btn.classList.toggle("active", loopMode !== "off");
+    $("loopState").textContent = info.label;
+  }
+  function cycleLoop() {
+    var order = ["off", "all", "one", "shuffle"];
+    loopMode = order[(order.indexOf(loopMode) + 1) % order.length];
+    localStorage.setItem("ep_loop", loopMode);
+    renderLoop();
+    toast(loopInfo(loopMode).title);
+  }
+  // 播完一课后的自动续播：单课循环重播当前；列表循环顺序下一课（末尾回开头）；
+  // 随机播放随机选一课（不立即重复当前）；off 模式不自动播放
+  function playNext() {
+    if (!current || view.length === 0) return;
+    var i = view.indexOf(current);
+    if (loopMode === "one") {
+      audio.currentTime = 0;
+      audio.play().catch(function () {});
+      $("playBtn").textContent = "⏸";
+      return;
+    }
+    var j = -1;
+    if (loopMode === "shuffle") {
+      if (view.length === 1) {
+        j = 0;
+      } else {
+        j = Math.floor(Math.random() * (view.length - 1));
+        if (j >= i) j++; // 排除当前课，避免随机到同一课
+      }
+    } else if (loopMode === "all") {
+      j = (i + 1) % view.length; // 顺序连播，末尾回到开头
+    } else {
+      j = -1; // off：播完当前课停止，不自动续播
+    }
+    if (j >= 0 && j < view.length) selectLesson(view[j].id);
+  }
+
+  // ---------- 定时停止播放 ----------
+  function toggleSleepPanel(show) {
+    var p = $("sleepPanel");
+    if (show === undefined) show = p.classList.contains("hidden");
+    p.classList.toggle("hidden", !show);
+  }
+  function startSleepTimer(minutes) {
+    minutes = Math.max(1, Math.min(600, Math.floor(minutes || 0)));
+    if (!minutes) return;
+    sleepEndAt = Date.now() + minutes * 60000;
+    if (!sleepTimer) sleepTimer = setInterval(tickSleep, 1000);
+    $("sleepBtn").classList.add("active");
+    $("sleepCancel").classList.remove("hidden");
+    $("sleepPanel").classList.add("hidden");
+    renderSleep();
+    toast("定时 " + minutes + " 分钟后自动停止播放");
+  }
+  function cancelSleepTimer() {
+    sleepEndAt = 0;
+    if (sleepTimer) { clearInterval(sleepTimer); sleepTimer = null; }
+    $("sleepBtn").classList.remove("active");
+    $("sleepState").textContent = "";
+    $("sleepState").classList.remove("ticking");
+  }
+  function tickSleep() {
+    if (sleepEndAt <= 0) return;
+    var remain = Math.round((sleepEndAt - Date.now()) / 1000);
+    if (remain <= 0) {
+      cancelSleepTimer();
+      if (!audio.paused) audio.pause();
+      toast("⏱ 定时结束，已停止播放");
+      return;
+    }
+    var mm = Math.floor(remain / 60);
+    var ss = (remain % 60 < 10 ? "0" : "") + (remain % 60);
+    $("sleepState").textContent = "⏱ " + mm + ":" + ss;
+    $("sleepState").classList.add("ticking");
+  }
+  function renderSleep() {
+    tickSleep();
+  }
+
+  // ---------- 轻量提示 ----------
+  var toastTimer = null;
+  function toast(msg) {
+    var el = $("toast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "toast";
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.classList.add("show");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove("show"); }, 2600);
+  }
+
   // ---------- 主题 ----------
   function applyTheme(t) {
     document.documentElement.dataset.theme = t;
@@ -1128,12 +1244,31 @@
     $("seek").addEventListener("input", function () {
       if (audio.duration) audio.currentTime = (this.value / 1000) * audio.duration;
     });
+    $("loopBtn").onclick = cycleLoop;
+    $("sleepBtn").onclick = function () {
+      toggleSleepPanel();
+      this.blur();
+    };
+    $("sleepPanel").querySelectorAll(".sleep-chips button").forEach(function (b) {
+      b.onclick = function () { startSleepTimer(parseInt(b.dataset.min, 10)); };
+    });
+    $("sleepStart").onclick = function () { startSleepTimer(parseInt($("sleepMin").value, 10)); };
+    $("sleepMin").addEventListener("keydown", function (e) { if (e.key === "Enter") startSleepTimer(parseInt(this.value, 10)); });
+    $("sleepCancel").onclick = function () { cancelSleepTimer(); $("sleepPanel").classList.add("hidden"); };
+    document.addEventListener("click", function (e) {
+      var p = $("sleepPanel");
+      if (!p.classList.contains("hidden") &&
+          !p.contains(e.target) && e.target.id !== "sleepBtn") {
+        p.classList.add("hidden");
+      }
+    });
 
     audio.addEventListener("play", function () { $("playBtn").textContent = "⏸"; });
     audio.addEventListener("pause", function () { $("playBtn").textContent = "▶"; });
     audio.addEventListener("ended", function () {
       $("playBtn").textContent = "▶";
       if (current && !completed[current.id]) toggleComplete();
+      playNext();
     });
     audio.addEventListener("loadedmetadata", function () { $("durTime").textContent = fmt(audio.duration); });
     audio.addEventListener("timeupdate", function () {

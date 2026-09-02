@@ -243,6 +243,90 @@ main { flex: 1; display: flex; min-height: 0; }
 .btn-ab.active { background: #f59e0b; color: #fff; border-color: #f59e0b; }
 .ab-state { font-size: 12px; color: #b45309; min-width: 70px; }
 
+/* ---------- 循环 / 定时控制 ---------- */
+#loopBtn.active, #sleepBtn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+#sleepState.ticking { color: #b45309; font-variant-numeric: tabular-nums; }
+.sleep-panel {
+  position: absolute;
+  right: 18px;
+  bottom: 62px;
+  z-index: 60;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(16, 24, 40, .18);
+  padding: 14px;
+  width: 320px;
+  max-width: calc(100vw - 24px);
+}
+.sleep-panel .sleep-title { font-size: 13px; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+.sleep-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.sleep-chips button {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text);
+}
+.sleep-chips button:hover { border-color: var(--accent); color: var(--accent); }
+.sleep-custom { display: flex; gap: 8px; align-items: center; }
+.sleep-custom input {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 13px;
+}
+.sleep-start {
+  padding: 7px 14px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+.sleep-start:hover { background: #1d4ed8; }
+.sleep-cancel {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--muted);
+}
+.sleep-cancel:hover { color: #dc2626; border-color: #dc2626; }
+
+/* ---------- 轻量提示 toast ---------- */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: rgba(17, 24, 39, .92);
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .25);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+  max-width: calc(100vw - 40px);
+  text-align: center;
+}
+#toast.show { opacity: 1; }
+
 /* ---------- Tabs & panels ---------- */
 .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
 .tabs button {
