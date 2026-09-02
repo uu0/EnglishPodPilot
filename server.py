@@ -461,32 +461,35 @@ def build_index(data_dir):
                 "url": "/media/" + rel,
             }
 
-    # 2) 关联 srt / txt (仅标准课程有)
+    # 2) 关联 srt / txt（标准课 0001-0365 及 DC/TJI 系列；文件名 englishpod_<lid>.<ext>）
     for sub_dir, key in ((srt_dir, "srt"), (txt_dir, "txt")):
         if not os.path.isdir(sub_dir):
             continue
         for fn in os.listdir(sub_dir):
-            m = re.match(r"^englishpod_(\d+)\.(srt|txt)$", fn)
+            m = re.match(r"^englishpod_([A-Za-z]*\d+)\.(srt|txt)$", fn)
             if not m:
                 continue
             lid = m.group(1)
-            # 补齐前导零到 4 位，与音频命名一致
-            lid = lid.zfill(4)
+            # 标准数字课补齐前导零到 4 位，与音频命名一致（DC/TJI 命名自带前导零）
+            if lid.isdigit():
+                lid = lid.zfill(4)
             if lid in lessons:
                 lessons[lid][key] = "/media/" + os.path.relpath(
                     os.path.join(sub_dir, fn), data_dir
                 ).replace(os.sep, "/")
 
-    # 3) 关联 pdf
+    # 3) 关联 pdf（同样支持标准课与 DC/TJI）
     if os.path.isdir(pdf_dir):
         for root, _dirs, files in os.walk(pdf_dir):
             for fn in files:
                 if not fn.lower().endswith(".pdf"):
                     continue
-                m = re.match(r"^englishpod_(\d+)\.pdf$", fn)
+                m = re.match(r"^englishpod_([A-Za-z]*\d+)\.pdf$", fn)
                 if not m:
                     continue
-                lid = m.group(1).zfill(4)
+                lid = m.group(1)
+                if lid.isdigit():
+                    lid = lid.zfill(4)
                 if lid in lessons:
                     lessons[lid]["pdf"] = "/media/" + os.path.relpath(
                         os.path.join(root, fn), data_dir
