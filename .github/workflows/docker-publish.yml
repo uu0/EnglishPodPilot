@@ -1,5 +1,9 @@
 # 云端自动构建并推送到 Docker Hub
-# 触发：push 到 main（忽略纯文档/模板改动），也可在 GitHub Actions 页面手动触发
+# 触发：
+#   1. push 到 main（忽略纯文档/模板改动）      → 构建并推送 :latest（滚动追新版）
+#   2. 推送版本 tag（v*，如 v0.1.0 / v0.2.0）  → 构建并推送 :0.1.0 / :0.2.0（语义版本号）
+#      （注：GitHub 对 tag 的 push 不评估 paths 过滤，打 tag 必构建，与改了什么文件无关）
+#   3. workflow_dispatch 手动触发（main 分支） → 构建并推送 :latest
 # 前置：仓库 Settings → Secrets and variables → Actions 添加两个 secret：
 #   DOCKERHUB_USERNAME  = 你的 Docker Hub 用户名
 #   DOCKERHUB_TOKEN     = Docker Hub → Account Settings → Personal Access Tokens 生成的 token
@@ -8,6 +12,7 @@ name: build-push-docker-hub
 on:
   push:
     branches: [main]
+    tags: ['v*']
     paths-ignore:
       - 'README.md'
       - 'screenshots/**'
@@ -34,12 +39,22 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      # 生成镜像标签：
+      #   main 分支 / 手动触发  → latest
+      #   tag v0.2.0            → 0.2.0（自动去除 v 前缀，支持 0.2.0-beta.1 这类预发布）
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/englishpod-web
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           file: docker/Dockerfile
           push: true
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/englishpod-web:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/englishpod-web:${{ github.sha }}
+          tags: ${{ steps.meta.outputs.tags }}

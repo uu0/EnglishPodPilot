@@ -1,12 +1,15 @@
 services:
   englishpod:
-    # 默认从 Docker Hub 拉取镜像（无需现场构建）：
-    #   suncean/englishpod-web:latest  ← GitHub Actions 每次 push main 自动构建推送
+    # 默认从 Docker Hub 拉取镜像（无需现场构建）。
+    # 版本管理（推荐锁版）：image 写语义版本号，见 README「四·5 版本更新与回滚」——
+    #   升级 = 改大版本号 + docker compose up -d（本地无该版本会自动拉取）
+    #   回滚 = 改回旧版本号再 up -d（旧镜像仍在 Docker Hub）
+    # 滚动追新：把 image 改回 :latest（每次 push main 自动构建），更新时先 docker compose pull
     # 需要自己现场构建时：把下面 build 段取消注释（构建上下文为项目根 ..）即可
     # build:
     #   context: ..
     #   dockerfile: docker/Dockerfile
-    image: suncean/englishpod-web:latest
+    image: suncean/englishpod-web:0.1.0
     container_name: englishpod-web
     ports:
       - "8787:8787"
