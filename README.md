@@ -25,9 +25,9 @@
 ```
 englishpod/
 ├── data/
-│   ├── audio/                ← 课程音频（约 5.2G，1197 个 mp3，原 englishpod_all）
-│   ├── srt/  txt/  pdf/      ← 字幕 / 文本 / 讲义 PDF（按课号对应音频）
-│   ├── dict/                 ← 离线英汉词典 ECDICT：ecdict.csv（66M）+ ecdict.db（索引，可删）
+│   ├── audio/                ← 课程音频（约 5.2G，1197 个 mp3，原 englishpod_all，体积大不入库需自行下载）
+│   ├── srt/  txt/  pdf/      ← 字幕 / 文本 / 讲义 PDF（按课号对应音频，已随仓库分发）
+│   ├── dict/                 ← 离线英汉词典 ECDICT：ecdict.csv（66M）+ ecdict.db（索引，可删，体积大不入库需自行下载）
 │   └── appdata/              ← 多用户数据（账号/进度/生词本/学习时长）app.db，容器首次启动自动生成
 ├── server.py                 ← 应用代码（Python 标准库，零依赖，Docker 与本地共用）
 ├── webapp/                   ← 前端页面
@@ -41,14 +41,15 @@ englishpod/
 └── README.md
 ```
 
-> **课程资料需自行下载后放入对应文件夹**（仓库 `.gitignore` 已排除 `data/` 内部数据，仅保留目录骨架占位 `.gitkeep`）：
+> **音频与词典需自行下载放入对应文件夹**；字幕/文本/PDF 已随仓库分发（clone 即含，无需再下载）：
 >
-> | 类型 | 来源仓库 | 放入目录 |
+> | 类型 | 说明 | 是否入库 |
 > |---|---|---|
-> | **PDF 讲义** / **SRT 字幕** / **TXT 文本** | [github.com/guaguaguaxia/english_pod](https://github.com/guaguaguaxia/english_pod) | `data/pdf/` `data/srt/` `data/txt/` |
-> | **MP3 音频**（约 5.2G，1,197 个文件） | [archive.org/details/englishpod_all](https://archive.org/details/englishpod_all) | `data/audio/` |
+> | **SRT 字幕** / **TXT 文本** / **PDF 讲义** | 标准课（0001~0365）源自 [guaguaguaxia/english_pod](https://github.com/guaguaguaxia/english_pod)；DC/TJI 系列字幕为本地语音识别补全（见「十一、致谢与资料引用」） | ✅ 已入库（约 50M） |
+> | **MP3 音频**（约 5.2G，1,197 个文件） | [archive.org/details/englishpod_all](https://archive.org/details/englishpod_all) | ❌ 自行下载放入 `data/audio/` |
+> | **离线词典** `data/dict/ecdict.csv` | [github.com/skywind3000/ECDICT](https://github.com/skywind3000/ECDICT)，见「八、配置文件 → 离线英汉词典」 | ❌ 自行下载放入 `data/dict/` |
 >
-> 两份原始资料均**只含公开学习材料**。离线英汉词典（`data/dict/ecdict.csv`）需单独下载，见「八、配置文件 → 离线英汉词典」一节。
+> 两份原始资料（english_pod / archive.org）均**只含公开学习材料**。
 
 ### 每种运行方式需要哪些文件
 
@@ -57,8 +58,8 @@ englishpod/
 | `server.py` | ✅ 必须（构建进镜像） | ✅ 必须 |
 | `webapp/` | ✅ 必须（构建进镜像） | ✅ 必须 |
 | `data/audio` | ✅ 必须（卷挂载，无音频则无课可学） | ✅ 必须 |
-| `data/srt` `txt` `pdf` | ⚪ 可选（缺则对应功能自动隐藏） | ⚪ 可选 |
-| `data/dict`（ecdict.csv） | ✅ 建议（缺则离线词典不可用，其余正常） | ✅ 建议 |
+| `data/srt` `txt` `pdf` | ✅ 已随仓库分发（缺则对应功能自动隐藏） | ✅ 已随仓库分发 |
+| `data/dict`（ecdict.csv） | ✅ 建议（需自行下载，缺则离线词典不可用，其余正常） | ✅ 建议 |
 | `data/appdata` | ✅ 自动生成（多用户数据） | ✅ 自动生成 |
 | `config.json` | ⚪ 可选（在线词典 key，缺则在线查词不可用） | ⚪ 可选 |
 | `docker/` | ✅ 必须（compose + Dockerfile） | ❌ 不需要 |
@@ -236,3 +237,10 @@ python3 server.py --data ./data --host 0.0.0.0 --port 8787
 - **升级旧版（无多用户）会丢进度吗？** 不会。旧版数据在浏览器 localStorage，首次登录时若服务端还没有该用户的进度，会自动把本机 localStorage 的旧进度/生词一次性迁移上传。
 - **docker compose 报构建上下文太大？** 已配置 `.dockerignore` 排除 `data/`，构建上下文仅约 0.1M，不会把 5.2G 资料打进镜像。
 - **飞牛 Docker UI 部署报 `pull access denied for englishpod-web`？** 这是正常现象：镜像从未发布到仓库，UI 只会拉镜像、不会现场构建。请用 SSH 进入飞牛，在项目根目录执行 `docker compose -f docker/docker-compose.yml up -d --build` 现场构建（首次需联网拉取 `python:3.13-slim`）。构建成功后容器即可在 UI 中看到并管理；日常重启/改配置用 UI 或 `docker compose restart` 均可，无需重新构建。注意：上传到飞牛时务必包含隐藏文件 `.dockerignore`（文件管理器默认不显示隐藏文件，容易漏传，漏传会导致构建上下文达 5.2G）。
+
+## 十一、致谢与资料引用
+
+- **课程内容**：标准课（0001~0365）的讲义 PDF / 字幕 SRT / 文本 TXT 整理自 [guaguaguaxia/english_pod](https://github.com/guaguaguaxia/english_pod) 原项目，音频归档链接亦来自该项目指引——感谢原作者的整理与分享。
+- **DC/TJI 系列补充字幕**：本仓库扩展的 DC / TJI 系列课程缺少现成字幕，其 SRT/TXT 使用本地语音识别生成。**本地识别模型与转写脚本来源于 [uu0/english_pod_local](https://github.com/uu0/english_pod_local)**（基于 [faster-whisper](https://github.com/SYSTRAN/faster-whisper) `small.en` 模型，CPU 即可离线转写，无需 API key），生成脚本为 `tools/generate_subtitles.py`。
+- **音频**：来源于 [archive.org/details/englishpod_all](https://archive.org/details/englishpod_all) 公开归档。
+- **离线词典**：ECDICT（[github.com/skywind3000/ECDICT](https://github.com/skywind3000/ECDICT)），仅使用词条数据，未含任何专有内容。

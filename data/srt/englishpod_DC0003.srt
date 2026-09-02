@@ -1,0 +1,1660 @@
+1
+00:00:00,000 --> 00:00:13,000
+Hello, everyone, and welcome back to another edition of Director's Cut.
+
+2
+00:00:13,000 --> 00:00:14,000
+Hey.
+
+3
+00:00:14,000 --> 00:00:15,000
+Hey.
+
+4
+00:00:15,000 --> 00:00:16,000
+Action.
+
+5
+00:00:16,000 --> 00:00:17,000
+Hey, everyone.
+
+6
+00:00:17,000 --> 00:00:18,000
+Action.
+
+7
+00:00:18,000 --> 00:00:19,000
+All right.
+
+8
+00:00:19,000 --> 00:00:20,000
+So I'm joined here today, as always, with Catherine.
+
+9
+00:00:20,000 --> 00:00:21,000
+Hello.
+
+10
+00:00:21,000 --> 00:00:22,120
+And today, we have two special guests.
+
+11
+00:00:22,120 --> 00:00:23,120
+We have William.
+
+12
+00:00:23,120 --> 00:00:24,120
+Hello.
+
+13
+00:00:24,120 --> 00:00:29,360
+William is working now, well, he's kind of divided in half between English Pod and also
+
+14
+00:00:29,360 --> 00:00:30,360
+DRMs.
+
+15
+00:00:30,360 --> 00:00:32,680
+Yeah, I'm doing two things at once right now, but that'll change soon.
+
+16
+00:00:32,680 --> 00:00:36,000
+Yeah, you're two in one, but that's okay because you're a good guy.
+
+17
+00:00:36,000 --> 00:00:37,000
+Thank you.
+
+18
+00:00:37,000 --> 00:00:38,000
+And John, again.
+
+19
+00:00:38,000 --> 00:00:39,000
+Hey, hey.
+
+20
+00:00:39,000 --> 00:00:40,000
+You're not such a good guy, John.
+
+21
+00:00:40,000 --> 00:00:41,000
+Yeah, I know.
+
+22
+00:00:41,000 --> 00:00:42,000
+All right.
+
+23
+00:00:42,000 --> 00:00:50,200
+So John, as you know, is our leader in battle with the technology here at Praxis.
+
+24
+00:00:50,200 --> 00:00:54,520
+And he's also one of the most critical people in the movie industry, right?
+
+25
+00:00:54,520 --> 00:00:56,680
+You could say that.
+
+26
+00:00:56,680 --> 00:00:58,920
+And today, we're going to talk about Pulp Fiction.
+
+27
+00:00:58,960 --> 00:01:01,920
+So, okay, quick question, did you guys like it or not?
+
+28
+00:01:01,920 --> 00:01:02,920
+Of course.
+
+29
+00:01:02,920 --> 00:01:03,920
+One of my favorite movies of all time.
+
+30
+00:01:03,920 --> 00:01:04,920
+Favorite of all time.
+
+31
+00:01:04,920 --> 00:01:05,920
+Like a billion times.
+
+32
+00:01:05,920 --> 00:01:06,920
+A billion times.
+
+33
+00:01:06,920 --> 00:01:07,920
+John?
+
+34
+00:01:07,920 --> 00:01:08,920
+No.
+
+35
+00:01:08,920 --> 00:01:10,960
+See, this is why we invite John.
+
+36
+00:01:10,960 --> 00:01:12,240
+He does not like Pulp Fiction.
+
+37
+00:01:12,240 --> 00:01:13,680
+Why don't you like Pulp Fiction?
+
+38
+00:01:13,680 --> 00:01:15,960
+It's just kind of weird.
+
+39
+00:01:15,960 --> 00:01:17,520
+People don't talk like that.
+
+40
+00:01:17,520 --> 00:01:19,680
+What do you mean they don't talk like that?
+
+41
+00:01:19,680 --> 00:01:22,640
+You know, what movie do people actually talk like, you know, in real life?
+
+42
+00:01:22,640 --> 00:01:25,000
+Good Dialogue defines a lot of movies, man.
+
+43
+00:01:25,000 --> 00:01:29,960
+The dialogue is usually like what people would wish they could say, but could never actually
+
+44
+00:01:29,960 --> 00:01:31,480
+come up with on the spot.
+
+45
+00:01:31,480 --> 00:01:33,560
+Maybe documentaries, but...
+
+46
+00:01:33,560 --> 00:01:35,160
+Plenty of good movies have that.
+
+47
+00:01:35,160 --> 00:01:36,840
+So you're saying like Pulp Fiction?
+
+48
+00:01:36,840 --> 00:01:37,840
+As does Pulp Fiction.
+
+49
+00:01:37,840 --> 00:01:42,040
+Like, are they too long the dialogue or the incoherent or what?
+
+50
+00:01:42,040 --> 00:01:45,040
+They're just kind of ridiculous and exaggerated.
+
+51
+00:01:45,040 --> 00:01:46,040
+Some people might like that.
+
+52
+00:01:46,040 --> 00:01:47,040
+I just don't like it.
+
+53
+00:01:47,040 --> 00:01:50,800
+The funny thing is that that's one of the defining characteristics of the genre.
+
+54
+00:01:50,800 --> 00:01:51,800
+What genre is this?
+
+55
+00:01:51,800 --> 00:01:54,560
+So it's a statement on, you know, well, the word Pulp Fiction, right?
+
+56
+00:01:55,080 --> 00:01:56,080
+Pulp is the genre.
+
+57
+00:01:56,080 --> 00:01:57,800
+Oh, that's the genre, Pulp.
+
+58
+00:01:57,800 --> 00:01:58,800
+Like the magazine.
+
+59
+00:01:58,800 --> 00:01:59,800
+Exactly.
+
+60
+00:01:59,800 --> 00:02:02,640
+Pulps used to be books or magazines that were kind of broken up into different stories and
+
+61
+00:02:02,640 --> 00:02:06,140
+the stories would kind of come together in different ways and they were kind of intense
+
+62
+00:02:06,140 --> 00:02:08,240
+and short and in your face.
+
+63
+00:02:08,240 --> 00:02:09,240
+I see.
+
+64
+00:02:09,240 --> 00:02:11,000
+So in this movie, we have a lot of great stars, right?
+
+65
+00:02:11,000 --> 00:02:18,920
+We have John Travolta, Samuel L. Jackson, Uma Thurman, and I also saw Bruce Willis in
+
+66
+00:02:18,920 --> 00:02:19,920
+there.
+
+67
+00:02:19,920 --> 00:02:20,920
+Bruce Willis, yeah.
+
+68
+00:02:20,920 --> 00:02:21,920
+And...
+
+69
+00:02:21,920 --> 00:02:22,920
+Eric Stoltz.
+
+70
+00:02:22,920 --> 00:02:27,040
+This is this big guy called the guy from The Green Mile.
+
+71
+00:02:27,040 --> 00:02:28,040
+Is that the same guy?
+
+72
+00:02:28,040 --> 00:02:29,040
+I don't know.
+
+73
+00:02:29,040 --> 00:02:32,040
+Ving Rames is Marcellus Wallace in the movie.
+
+74
+00:02:32,040 --> 00:02:33,040
+Is that?
+
+75
+00:02:33,040 --> 00:02:34,040
+Is he in Green Mile?
+
+76
+00:02:34,040 --> 00:02:40,000
+The guy that played the villain in Daredevil, Michael.
+
+77
+00:02:40,000 --> 00:02:43,800
+And the director, Terence, even himself appears in the movie, which never helps.
+
+78
+00:02:43,800 --> 00:02:44,800
+He always appears.
+
+79
+00:02:44,800 --> 00:02:46,200
+And he always does it, too.
+
+80
+00:02:46,200 --> 00:02:48,000
+He always appears in all his movies, right?
+
+81
+00:02:48,000 --> 00:02:49,000
+Yeah.
+
+82
+00:02:49,000 --> 00:02:50,000
+He's a lovable character.
+
+83
+00:02:50,000 --> 00:02:52,440
+So this is the thing.
+
+84
+00:02:52,440 --> 00:02:53,440
+You don't like Tarantino?
+
+85
+00:02:53,440 --> 00:02:54,440
+He's so annoying.
+
+86
+00:02:54,440 --> 00:02:55,440
+He is.
+
+87
+00:02:55,440 --> 00:02:56,440
+He is.
+
+88
+00:02:56,440 --> 00:02:58,240
+I mean, he's great in his awfulness in that role.
+
+89
+00:02:58,240 --> 00:02:59,240
+Why do you say he's annoying?
+
+90
+00:02:59,240 --> 00:03:00,240
+The way he talks.
+
+91
+00:03:00,240 --> 00:03:01,240
+Exactly.
+
+92
+00:03:01,240 --> 00:03:03,600
+That's kind of how he talks, though.
+
+93
+00:03:03,600 --> 00:03:04,600
+I know.
+
+94
+00:03:04,600 --> 00:03:07,080
+Interviews with him are awesome.
+
+95
+00:03:07,080 --> 00:03:08,080
+So okay.
+
+96
+00:03:08,080 --> 00:03:15,360
+Quentin Tarantino is known for his very violent, very cruel at times movies, right?
+
+97
+00:03:15,360 --> 00:03:16,880
+Pulp Fiction is one of them.
+
+98
+00:03:16,880 --> 00:03:18,600
+What is another Tarantino film?
+
+99
+00:03:18,600 --> 00:03:21,440
+Reservoir Dogs is one he did earlier than Pulp Fiction.
+
+100
+00:03:21,440 --> 00:03:23,640
+Reservoir Dogs is an awesome film, I must say.
+
+101
+00:03:23,640 --> 00:03:24,640
+Yeah.
+
+102
+00:03:24,640 --> 00:03:27,600
+He also did Half of the Grindhouse movie duet.
+
+103
+00:03:27,600 --> 00:03:28,600
+Right.
+
+104
+00:03:28,600 --> 00:03:29,600
+Yeah.
+
+105
+00:03:29,600 --> 00:03:30,600
+And was in his...
+
+106
+00:03:30,600 --> 00:03:31,600
+Kill Bill.
+
+107
+00:03:31,600 --> 00:03:32,600
+Kill Bill.
+
+108
+00:03:32,600 --> 00:03:33,600
+One and two.
+
+109
+00:03:33,600 --> 00:03:34,600
+Kill Bill.
+
+110
+00:03:34,600 --> 00:03:35,600
+One and two.
+
+111
+00:03:35,600 --> 00:03:36,600
+So also kind of gruesome.
+
+112
+00:03:36,600 --> 00:03:37,600
+And also kind of...
+
+113
+00:03:37,600 --> 00:03:38,960
+I think Kill Bill was kind of fantastic, though, right?
+
+114
+00:03:38,960 --> 00:03:39,960
+Fantastical or fantastic?
+
+115
+00:03:39,960 --> 00:03:40,960
+Because it's both, in my opinion.
+
+116
+00:03:40,960 --> 00:03:41,960
+Well, like...
+
+117
+00:03:41,960 --> 00:03:42,960
+Yeah.
+
+118
+00:03:42,960 --> 00:03:43,960
+Too much fantasy in that movie.
+
+119
+00:03:43,960 --> 00:03:44,960
+Oh, yeah.
+
+120
+00:03:44,960 --> 00:03:45,960
+But that's why it's great.
+
+121
+00:03:45,960 --> 00:03:48,600
+And also, like, he gets kind of fixated on these areas or genres.
+
+122
+00:03:48,600 --> 00:03:53,040
+And so that one, he's really fixated on, like, Japan, Japanese culture and, like, yeah,
+
+123
+00:03:53,040 --> 00:03:54,040
+comic books.
+
+124
+00:03:54,040 --> 00:03:55,040
+Right.
+
+125
+00:03:55,040 --> 00:03:56,720
+And he does throw in a lot of genres in that one.
+
+126
+00:03:56,720 --> 00:03:58,700
+So he does the Japanimation segment.
+
+127
+00:03:58,700 --> 00:04:03,640
+There's the spaghetti western part of the movie and the Chinese kung fu part.
+
+128
+00:04:03,640 --> 00:04:08,080
+I mean, that's kind of the genius of Tarantino, I think, is that he can encompass these genres
+
+129
+00:04:08,080 --> 00:04:09,960
+and do them really well, you know.
+
+130
+00:04:09,960 --> 00:04:11,120
+And he loves the 70s.
+
+131
+00:04:11,120 --> 00:04:12,120
+Yeah.
+
+132
+00:04:12,120 --> 00:04:13,120
+He's really into the setting, right?
+
+133
+00:04:13,120 --> 00:04:16,280
+You know, the lowrider cars and the bright colors and the big hair.
+
+134
+00:04:16,280 --> 00:04:19,040
+Have you ever seen the movie Death Proof?
+
+135
+00:04:19,040 --> 00:04:20,040
+Yeah.
+
+136
+00:04:20,040 --> 00:04:21,440
+That's the one that was in the Grand House.
+
+137
+00:04:21,440 --> 00:04:22,440
+Yeah.
+
+138
+00:04:22,440 --> 00:04:24,480
+Also very 70s and very...
+
+139
+00:04:24,480 --> 00:04:25,480
+But like femme.
+
+140
+00:04:25,480 --> 00:04:27,520
+Like, very, very femme.
+
+141
+00:04:27,520 --> 00:04:30,240
+You've got these great female characters who kick ass.
+
+142
+00:04:30,240 --> 00:04:31,240
+Oh, yeah.
+
+143
+00:04:31,240 --> 00:04:32,240
+That's true.
+
+144
+00:04:32,240 --> 00:04:33,240
+So it's like girl power.
+
+145
+00:04:33,240 --> 00:04:34,240
+Yeah, I like it.
+
+146
+00:04:34,240 --> 00:04:35,240
+That's why you like it, yeah.
+
+147
+00:04:35,240 --> 00:04:38,800
+And it's a role reversal because you've got, like, these chicks who just kick the crap
+
+148
+00:04:38,800 --> 00:04:42,400
+out of this asshole guy who's trying to maybe kill them.
+
+149
+00:04:42,400 --> 00:04:43,400
+That part's kind of cool.
+
+150
+00:04:43,400 --> 00:04:44,400
+Yeah.
+
+151
+00:04:44,400 --> 00:04:45,400
+I loved it.
+
+152
+00:04:45,520 --> 00:04:48,920
+And they're pretty bad ass, too, because they're like adrenaline freaks, like they're
+
+153
+00:04:48,920 --> 00:04:49,920
+adrenaline junkies.
+
+154
+00:04:49,920 --> 00:04:52,400
+And so they have to, like, climb on the car and, like, hold on to the car while they're
+
+155
+00:04:52,400 --> 00:04:54,280
+going 100 miles an hour down the highway in the southwest.
+
+156
+00:04:54,280 --> 00:04:55,280
+Is this a recent movie?
+
+157
+00:04:55,280 --> 00:04:57,240
+It came out, like, three years ago.
+
+158
+00:04:57,240 --> 00:04:58,960
+So this is a bunch of different directors?
+
+159
+00:04:58,960 --> 00:04:59,960
+Two directors.
+
+160
+00:04:59,960 --> 00:05:00,960
+Collaborated.
+
+161
+00:05:00,960 --> 00:05:03,240
+Two directors collaborated and each did one of the other, one movie.
+
+162
+00:05:03,240 --> 00:05:04,240
+Okay.
+
+163
+00:05:04,240 --> 00:05:05,240
+Actually, yeah.
+
+164
+00:05:05,240 --> 00:05:06,240
+Yeah, I think they also...
+
+165
+00:05:06,240 --> 00:05:07,240
+It's two of them.
+
+166
+00:05:07,240 --> 00:05:08,240
+Yeah, the Grand House, right?
+
+167
+00:05:08,240 --> 00:05:09,240
+All right.
+
+168
+00:05:09,240 --> 00:05:14,280
+So apart from this, the dialogue, as we were talking about with John, it's...
+
+169
+00:05:14,280 --> 00:05:15,280
+Wait, wait.
+
+170
+00:05:15,280 --> 00:05:16,280
+One more thing.
+
+171
+00:05:16,280 --> 00:05:17,280
+What?
+
+172
+00:05:17,280 --> 00:05:19,760
+The dialogue is important if you're learning English because you don't want to just learn
+
+173
+00:05:19,760 --> 00:05:23,200
+a bunch of weird English that you're never ever going to use, right?
+
+174
+00:05:23,200 --> 00:05:25,160
+Because that's what Pulp Fiction is.
+
+175
+00:05:25,160 --> 00:05:26,160
+Is it really?
+
+176
+00:05:26,160 --> 00:05:27,160
+Well, I think it's very...
+
+177
+00:05:27,160 --> 00:05:28,160
+It's very...
+
+178
+00:05:28,160 --> 00:05:30,760
+It's obviously they have a lot of bad words in that movie.
+
+179
+00:05:30,760 --> 00:05:35,040
+I don't know, like, how many times they actually drop the F bomb and this and that.
+
+180
+00:05:35,040 --> 00:05:38,080
+So it is very cruel language at some point.
+
+181
+00:05:38,080 --> 00:05:41,560
+But I don't know, like, we have a clip lined up right now.
+
+182
+00:05:41,560 --> 00:05:42,560
+It's a small clip.
+
+183
+00:05:42,560 --> 00:05:44,480
+It's a small clip about an extract from the movie.
+
+184
+00:05:44,480 --> 00:05:48,640
+They're in the car and they're just talking about, you know, whatever random thing.
+
+185
+00:05:48,640 --> 00:05:49,640
+Okay.
+
+186
+00:05:49,640 --> 00:05:50,640
+So let's listen.
+
+187
+00:05:50,640 --> 00:06:16,620
+You know what the funniest thing about Europe is?
+
+188
+00:06:16,620 --> 00:06:17,620
+What?
+
+189
+00:06:17,620 --> 00:06:18,620
+It's a little different, Jesus.
+
+190
+00:06:18,620 --> 00:06:22,020
+I mean, they got the same shit over there that they got here, but it's just...
+
+191
+00:06:22,020 --> 00:06:23,020
+Just there.
+
+192
+00:06:23,020 --> 00:06:24,020
+It's a little different.
+
+193
+00:06:24,020 --> 00:06:25,020
+Example.
+
+194
+00:06:25,020 --> 00:06:26,020
+All right.
+
+195
+00:06:26,020 --> 00:06:28,220
+Well, you can walk into a movie theater in Amsterdam and buy a beer.
+
+196
+00:06:28,220 --> 00:06:29,700
+And I don't mean just, like, a little paper cup.
+
+197
+00:06:29,700 --> 00:06:31,420
+I'm talking about a glass of beer.
+
+198
+00:06:31,420 --> 00:06:34,340
+And in Paris, you can buy a beer in McDonald's.
+
+199
+00:06:34,780 --> 00:06:39,500
+And you know what they call a quarter pounder with cheese in Paris?
+
+200
+00:06:39,500 --> 00:06:41,100
+They don't call it a quarter pounder with cheese?
+
+201
+00:06:41,100 --> 00:06:42,500
+I mean, they got the metric system.
+
+202
+00:06:42,500 --> 00:06:44,500
+They don't know what the fuck a quarter pounder is.
+
+203
+00:06:44,500 --> 00:06:45,500
+And what do they call it?
+
+204
+00:06:45,500 --> 00:06:48,500
+They call it the Royale with cheese.
+
+205
+00:06:48,500 --> 00:06:49,500
+Royale with cheese.
+
+206
+00:06:49,500 --> 00:06:50,500
+That's right.
+
+207
+00:06:50,500 --> 00:06:52,500
+What do they call a Big Mac?
+
+208
+00:06:52,500 --> 00:06:55,500
+Big Mac's a Big Mac, but they call it Le Big Mac.
+
+209
+00:06:55,500 --> 00:06:56,500
+Le Big Mac.
+
+210
+00:06:58,500 --> 00:06:59,500
+What do they call it?
+
+211
+00:06:59,500 --> 00:07:00,500
+I don't know.
+
+212
+00:07:00,500 --> 00:07:02,500
+I didn't go on a burger chicken.
+
+213
+00:07:02,660 --> 00:07:05,660
+You know what they put on french fries and hollins instead of ketchup?
+
+214
+00:07:05,660 --> 00:07:06,660
+Or what?
+
+215
+00:07:06,660 --> 00:07:07,660
+Mayonnaise.
+
+216
+00:07:09,660 --> 00:07:10,660
+I've seen them do it, man.
+
+217
+00:07:10,660 --> 00:07:12,660
+They fucking drown them in this shit.
+
+218
+00:07:12,660 --> 00:07:17,270
+All right.
+
+219
+00:07:17,270 --> 00:07:18,270
+We're back.
+
+220
+00:07:18,270 --> 00:07:23,190
+So did you know that the quarter pounder with cheese in France is called the Royale with
+
+221
+00:07:23,190 --> 00:07:24,190
+cheese?
+
+222
+00:07:24,190 --> 00:07:26,190
+Did you know that before you watched this movie, John?
+
+223
+00:07:26,190 --> 00:07:27,190
+No.
+
+224
+00:07:27,190 --> 00:07:28,190
+See?
+
+225
+00:07:28,190 --> 00:07:29,190
+You learned something from both things.
+
+226
+00:07:29,190 --> 00:07:31,230
+This movie dropped some knowledge on you.
+
+227
+00:07:31,230 --> 00:07:34,790
+This movie came out when I was 11, okay?
+
+228
+00:07:34,790 --> 00:07:38,950
+It's a good example of kind of not the most high frequency language.
+
+229
+00:07:38,950 --> 00:07:39,950
+Right.
+
+230
+00:07:39,950 --> 00:07:40,950
+Well, yeah.
+
+231
+00:07:40,950 --> 00:07:41,950
+I don't know.
+
+232
+00:07:41,950 --> 00:07:44,150
+But they did use things like they said the metric system.
+
+233
+00:07:44,150 --> 00:07:45,150
+That was interesting.
+
+234
+00:07:45,150 --> 00:07:46,910
+They used the metric system in France.
+
+235
+00:07:46,910 --> 00:07:53,270
+Well, and part of language learning, John, is about being able to appreciate new movies,
+
+236
+00:07:53,270 --> 00:07:59,070
+books, parts of culture that wouldn't necessarily make as much sense in a translated version.
+
+237
+00:07:59,070 --> 00:08:01,830
+And so this is kind of one of the benefits of learning a language.
+
+238
+00:08:01,830 --> 00:08:06,590
+You get exposure to all these great, fun, interesting, or gruesome forms of entertainment.
+
+239
+00:08:06,590 --> 00:08:09,470
+And that's fun if you can listen to it in its original language.
+
+240
+00:08:09,470 --> 00:08:14,990
+Or you can study really hard and lots of words and then watch Pulp Fiction, file to understand
+
+241
+00:08:14,990 --> 00:08:16,950
+it and have a big letdown.
+
+242
+00:08:16,950 --> 00:08:26,510
+Well, it was very difficult to understand because their accent is also a little bit
+
+243
+00:08:26,510 --> 00:08:30,630
+hard to understand the way John Travolta talks and also Samuel L. Jackson.
+
+244
+00:08:30,630 --> 00:08:35,990
+They both have a little bit of twang, which is kind of a kind of American speech that
+
+245
+00:08:35,990 --> 00:08:36,990
+–
+
+246
+00:08:36,990 --> 00:08:37,990
+Kind of southern.
+
+247
+00:08:37,990 --> 00:08:42,870
+Yeah, sometimes southern, a little kind of like this, you know.
+
+248
+00:08:42,870 --> 00:08:44,430
+So it was a little bit hard to understand.
+
+249
+00:08:44,430 --> 00:08:48,790
+John, like if you were learning English, would it be very hard to understand this movie
+
+250
+00:08:48,790 --> 00:08:49,790
+without subtitles?
+
+251
+00:08:49,790 --> 00:08:52,550
+Well, I'm not a non-native speaker, but I think it would be.
+
+252
+00:08:52,550 --> 00:08:55,290
+If you're advanced, you know, give it a try.
+
+253
+00:08:55,290 --> 00:08:58,310
+And this is, I would like to add, one of the most famous lines from the movie.
+
+254
+00:08:58,310 --> 00:08:59,630
+I mean, everyone knows this line.
+
+255
+00:08:59,630 --> 00:09:03,010
+And so if you ever reference it, I'm sure the person you're talking to will recognize
+
+256
+00:09:03,010 --> 00:09:04,010
+where I came from.
+
+257
+00:09:04,010 --> 00:09:05,010
+That's true.
+
+258
+00:09:05,010 --> 00:09:06,010
+The cultural aspect.
+
+259
+00:09:06,010 --> 00:09:10,270
+Yeah, the cultural aspect because this movie is considered to be an icon of the 90s, right?
+
+260
+00:09:10,270 --> 00:09:12,710
+Absolutely, a cult favorite, if you will.
+
+261
+00:09:12,710 --> 00:09:17,150
+And the scene where Uma Thurman and John Travolta are dancing and they're doing the
+
+262
+00:09:17,150 --> 00:09:21,470
+eye thing and you know whatever, that also is considered to be one of the most famous
+
+263
+00:09:21,470 --> 00:09:22,470
+scenes.
+
+264
+00:09:22,470 --> 00:09:23,470
+It's very, very recognizable, right?
+
+265
+00:09:23,470 --> 00:09:25,870
+Yeah, they're doing the twist and they're doing the cat eyes.
+
+266
+00:09:25,870 --> 00:09:26,870
+The cat eyes.
+
+267
+00:09:26,870 --> 00:09:27,870
+That's what that's called.
+
+268
+00:09:27,870 --> 00:09:28,870
+That's what it's called.
+
+269
+00:09:28,870 --> 00:09:29,870
+Really?
+
+270
+00:09:29,870 --> 00:09:30,870
+Cat eyes.
+
+271
+00:09:30,870 --> 00:09:31,870
+I didn't know that either.
+
+272
+00:09:31,870 --> 00:09:32,870
+That makes sense.
+
+273
+00:09:32,870 --> 00:09:33,870
+I just made it up.
+
+274
+00:09:33,870 --> 00:09:39,910
+You just coined the phrase then and now it's recorded forever.
+
+275
+00:09:39,910 --> 00:09:41,830
+So yeah, it is an icon.
+
+276
+00:09:41,830 --> 00:09:43,350
+Did it win any awards?
+
+277
+00:09:43,350 --> 00:09:44,350
+I'm sure it did.
+
+278
+00:09:44,350 --> 00:09:49,550
+Yeah, I think, I don't know if it won any major awards like the, like any Oscars or
+
+279
+00:09:49,550 --> 00:09:50,550
+I doubt it.
+
+280
+00:09:50,550 --> 00:09:55,790
+I think it definitely won some like Sundance Awards, Cannes Film Festival type of things.
+
+281
+00:09:55,790 --> 00:09:57,430
+Now it's a very long film, right?
+
+282
+00:09:57,430 --> 00:09:58,910
+It lasts like two and a half hours.
+
+283
+00:09:58,910 --> 00:10:01,950
+Yeah, but if you think about it, it's like five stories rolled into one.
+
+284
+00:10:01,950 --> 00:10:05,070
+You've got the boxer, you've got the gangsters, you've got the mind that gets lost, you've
+
+285
+00:10:05,070 --> 00:10:10,270
+got the guy who gets caught up, well I'm not even going to mention that one, but that's
+
+286
+00:10:10,270 --> 00:10:11,270
+an M basement.
+
+287
+00:10:11,270 --> 00:10:17,430
+So yeah, with Bruce Rose, I kind of erased that from my memory, thanks for bringing
+
+288
+00:10:17,430 --> 00:10:19,430
+that back.
+
+289
+00:10:19,430 --> 00:10:25,590
+So John, you are known to only have a very short span when watching a movie that you
+
+290
+00:10:25,590 --> 00:10:26,590
+don't enjoy.
+
+291
+00:10:26,590 --> 00:10:27,990
+You actually finished this movie.
+
+292
+00:10:27,990 --> 00:10:28,990
+Of course.
+
+293
+00:10:28,990 --> 00:10:29,990
+You did.
+
+294
+00:10:29,990 --> 00:10:30,990
+That's not true.
+
+295
+00:10:30,990 --> 00:10:31,990
+If the movie is good, I'll watch the whole thing.
+
+296
+00:10:31,990 --> 00:10:32,990
+So it is good.
+
+297
+00:10:32,990 --> 00:10:33,990
+So it is good.
+
+298
+00:10:33,990 --> 00:10:35,990
+Have you only seen this movie?
+
+299
+00:10:35,990 --> 00:10:38,510
+Let me clarify that.
+
+300
+00:10:38,510 --> 00:10:40,990
+This movie is cultural homework.
+
+301
+00:10:40,990 --> 00:10:41,990
+Cultural homework.
+
+302
+00:10:41,990 --> 00:10:45,870
+You need to watch it so that you could connect with your peers, but you might
+
+303
+00:10:45,870 --> 00:10:46,870
+not like it.
+
+304
+00:10:46,870 --> 00:10:49,670
+I do think, I do think it requires effort though.
+
+305
+00:10:49,670 --> 00:10:51,310
+This movie, you can't just watch it once.
+
+306
+00:10:51,310 --> 00:10:55,270
+You really need to watch it a few times because the way the story unfolds and the
+
+307
+00:10:55,270 --> 00:10:59,350
+timing, you really need to step back and kind of think about it and watch it.
+
+308
+00:10:59,350 --> 00:11:02,430
+Did you watch it more than once, John, or did you only watch it once?
+
+309
+00:11:02,430 --> 00:11:07,510
+I think I only watched it start to finish once, but I have seen parts again.
+
+310
+00:11:07,510 --> 00:11:10,070
+So you watched it out of peer pressure because you didn't want to be left out
+
+311
+00:11:10,070 --> 00:11:11,830
+of the conversations back in school.
+
+312
+00:11:11,830 --> 00:11:12,830
+Curiosity.
+
+313
+00:11:12,830 --> 00:11:13,830
+And peer pressure.
+
+314
+00:11:13,830 --> 00:11:14,830
+But it was one of the first movies.
+
+315
+00:11:14,830 --> 00:11:20,150
+It was one of the first movies in that kind of slew of 90s movies to do that,
+
+316
+00:11:20,150 --> 00:11:22,190
+what Bill's saying, where it's not a linear narrative.
+
+317
+00:11:22,190 --> 00:11:25,110
+It's not like a linear story where, you know, it's 11 o'clock in the morning,
+
+318
+00:11:25,110 --> 00:11:26,710
+and it's noon, and then it's one o'clock.
+
+319
+00:11:26,710 --> 00:11:30,190
+But like Tarantino takes pieces from later in the story and he puts them at the beginning
+
+320
+00:11:30,190 --> 00:11:31,750
+and so you see things that don't make sense.
+
+321
+00:11:31,750 --> 00:11:35,190
+And finally at the end, it's really satisfying because you're like, oh, that's why he was
+
+322
+00:11:35,190 --> 00:11:36,870
+wearing that ugly shirt.
+
+323
+00:11:36,870 --> 00:11:39,630
+It's because he lost his other one.
+
+324
+00:11:39,630 --> 00:11:42,030
+It's really, I think there's something really satisfying about that when you're watching
+
+325
+00:11:42,030 --> 00:11:44,110
+a movie and you kind of put the pieces together.
+
+326
+00:11:44,110 --> 00:11:45,110
+Definitely.
+
+327
+00:11:45,110 --> 00:11:46,510
+And it did kind of start a trend too.
+
+328
+00:11:46,510 --> 00:11:47,910
+There's movies later on.
+
+329
+00:11:47,910 --> 00:11:48,910
+Yeah, Memento.
+
+330
+00:11:48,910 --> 00:11:51,430
+Memento being the very obvious one.
+
+331
+00:11:51,430 --> 00:11:55,710
+And then with Lost, with having flashbacks and flash forwards.
+
+332
+00:11:55,710 --> 00:11:57,510
+I really bothered me when they had the flash forwards.
+
+333
+00:11:57,510 --> 00:11:58,510
+I haven't seen it.
+
+334
+00:11:58,510 --> 00:11:59,510
+I haven't seen it.
+
+335
+00:11:59,510 --> 00:12:00,510
+Lost.
+
+336
+00:12:00,510 --> 00:12:05,710
+All right, so, well, on a rating, giving A plus being the best, what would you rate
+
+337
+00:12:05,710 --> 00:12:06,710
+this movie?
+
+338
+00:12:06,710 --> 00:12:07,710
+What would you grade it?
+
+339
+00:12:07,710 --> 00:12:08,710
+I would put it at an A plus.
+
+340
+00:12:08,710 --> 00:12:12,150
+For me, it was like, it was really a milestone movie for me because I was, like Katherine,
+
+341
+00:12:12,150 --> 00:12:14,710
+I was 11, 12 years old when I first saw it.
+
+342
+00:12:14,710 --> 00:12:17,830
+How were your parents letting you watch this, like, cruise?
+
+343
+00:12:17,830 --> 00:12:18,830
+I didn't watch it with my parents.
+
+344
+00:12:19,230 --> 00:12:21,470
+No, I had a friend named Ashley and her parents didn't care.
+
+345
+00:12:21,470 --> 00:12:24,750
+So we used to go over to her house to watch R rated movies, like Speed, Speed came out
+
+346
+00:12:24,750 --> 00:12:25,750
+that year too, I think.
+
+347
+00:12:25,750 --> 00:12:26,750
+Speed is R rated.
+
+348
+00:12:26,750 --> 00:12:27,750
+Speed is R rated.
+
+349
+00:12:27,750 --> 00:12:28,750
+Oh, yeah.
+
+350
+00:12:28,750 --> 00:12:29,750
+I was.
+
+351
+00:12:29,750 --> 00:12:30,750
+Believe me, my parents would not let me see it.
+
+352
+00:12:30,750 --> 00:12:31,750
+Was that Keanu Reeves' first R rated film?
+
+353
+00:12:31,750 --> 00:12:32,750
+Yeah, probably.
+
+354
+00:12:32,750 --> 00:12:33,750
+And only.
+
+355
+00:12:33,750 --> 00:12:34,750
+After Dracula, probably.
+
+356
+00:12:34,750 --> 00:12:36,950
+All right, so Katherine, how would you rate this movie?
+
+357
+00:12:36,950 --> 00:12:38,670
+I'd give it a solid A.
+
+358
+00:12:38,670 --> 00:12:39,670
+Solid A.
+
+359
+00:12:39,670 --> 00:12:40,670
+Mm-hmm.
+
+360
+00:12:40,670 --> 00:12:41,910
+Okay, A and John?
+
+361
+00:12:41,910 --> 00:12:42,910
+I'm a generous guy.
+
+362
+00:12:42,910 --> 00:12:45,150
+I'll give it a solid C plus.
+
+363
+00:12:45,150 --> 00:12:46,150
+C plus?
+
+364
+00:12:46,150 --> 00:12:47,150
+Wow.
+
+365
+00:12:47,150 --> 00:12:48,150
+Oh, man.
+
+366
+00:12:48,310 --> 00:12:50,310
+Was graded better than that.
+
+367
+00:12:50,310 --> 00:12:51,310
+Ouch.
+
+368
+00:12:51,310 --> 00:12:52,310
+You put Twilight ahead of perfection, John.
+
+369
+00:12:52,310 --> 00:12:53,310
+Oh, boo.
+
+370
+00:12:53,310 --> 00:12:54,310
+I didn't rate Twilight.
+
+371
+00:12:54,310 --> 00:12:57,310
+I didn't watch Twilight.
+
+372
+00:12:57,310 --> 00:12:59,310
+John, it's cultural homework.
+
+373
+00:12:59,310 --> 00:13:00,550
+People are talking about it.
+
+374
+00:13:00,550 --> 00:13:02,550
+Mm, I'll think about it.
+
+375
+00:13:02,550 --> 00:13:05,550
+Sometimes you don't do your homework though.
+
+376
+00:13:05,550 --> 00:13:06,550
+Only if you're a bad student.
+
+377
+00:13:06,550 --> 00:13:10,670
+All right, so it's an interesting film if you haven't watched it.
+
+378
+00:13:10,670 --> 00:13:11,670
+Try and watch it.
+
+379
+00:13:11,670 --> 00:13:12,670
+We do warn you.
+
+380
+00:13:12,670 --> 00:13:13,670
+Do not let your kids watch it.
+
+381
+00:13:13,670 --> 00:13:14,670
+Yeah, don't let your kids watch it.
+
+382
+00:13:14,670 --> 00:13:15,670
+It is very graphic.
+
+383
+00:13:15,670 --> 00:13:16,670
+There is a lot of blood.
+
+384
+00:13:16,670 --> 00:13:18,550
+A lot of swearing going on.
+
+385
+00:13:18,550 --> 00:13:19,550
+Colorful language.
+
+386
+00:13:19,550 --> 00:13:21,830
+Colorful language, as you say.
+
+387
+00:13:21,830 --> 00:13:24,110
+But as John says, it's cultural homework.
+
+388
+00:13:24,110 --> 00:13:25,110
+Watch it.
+
+389
+00:13:25,110 --> 00:13:28,270
+It is a little bit of an insight to American culture at some point.
+
+390
+00:13:28,270 --> 00:13:29,270
+Yeah, wow.
+
+391
+00:13:29,270 --> 00:13:30,270
+We don't really cook.
+
+392
+00:13:30,270 --> 00:13:34,190
+Or it's a good thing to study if you want to learn how to use the F word.
+
+393
+00:13:34,190 --> 00:13:35,350
+Yeah, also, yeah.
+
+394
+00:13:35,350 --> 00:13:40,430
+It's very interesting because you can see how it's an adjective, a noun, an adverb.
+
+395
+00:13:40,430 --> 00:13:41,430
+It's the most common.
+
+396
+00:13:41,430 --> 00:13:42,430
+It's conjugated in every way.
+
+397
+00:13:42,430 --> 00:13:46,510
+Also, how to put it together with other words to make more colorful statements.
+
+398
+00:13:46,950 --> 00:13:51,310
+Or you can conjugate it with other F words and you can have it as a whole sentence could
+
+399
+00:13:51,310 --> 00:13:53,150
+be using the F word, right?
+
+400
+00:13:53,150 --> 00:13:54,750
+We'll have to ask Matt about that.
+
+401
+00:13:54,750 --> 00:13:56,350
+I think he would be the expert.
+
+402
+00:13:56,350 --> 00:13:57,350
+All right, guys.
+
+403
+00:13:57,350 --> 00:13:58,350
+So that's all for today.
+
+404
+00:13:58,350 --> 00:13:59,350
+I hope you enjoyed it.
+
+405
+00:13:59,350 --> 00:14:01,510
+Please leave your questions and comments on the site.
+
+406
+00:14:01,510 --> 00:14:06,550
+And if you have any counter arguments against John, because I'm sure a lot of angry people
+
+407
+00:14:06,550 --> 00:14:08,430
+are going to be out there.
+
+408
+00:14:08,430 --> 00:14:09,430
+Or against us.
+
+409
+00:14:09,430 --> 00:14:10,430
+Or against Catherine Bill.
+
+410
+00:14:10,430 --> 00:14:14,090
+There's probably more people who disagree with me and Bill, so.
+
+411
+00:14:14,090 --> 00:14:17,810
+You can leave your suggestions there as well and we'll see you next time on Director's
+
+412
+00:14:17,810 --> 00:14:18,810
+Cut.
+
+413
+00:14:18,810 --> 00:14:19,810
+Goodbye, everyone.
+
+414
+00:14:19,810 --> 00:14:20,810
+Bye.
+
+415
+00:14:20,810 --> 00:14:20,830
+Bye.
+

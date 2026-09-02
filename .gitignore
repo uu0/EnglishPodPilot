@@ -12,17 +12,9 @@ app.db-*
 # macOS
 .DS_Store
 
-# 离线资源数据：只保留 data/ 目录骨架，数据文件一律不入库
-# （audio/srt/txt/pdf/dict/appdata 各目录用 .gitkeep 占位保留结构）
+# 大体积离线资源不入库：音频 5.2G + 词典 176M（ecdict.db 113M 超 GitHub 单文件限制）
+# 字幕/文本/PDF 已入库（srt ~10M / txt ~6M / pdf ~34M）
 data/audio/*
-data/srt/*
-data/txt/*
-data/pdf/*
 data/dict/*
-data/appdata/*
 !data/audio/.gitkeep
-!data/srt/.gitkeep
-!data/txt/.gitkeep
-!data/pdf/.gitkeep
 !data/dict/.gitkeep
-!data/appdata/.gitkeep
