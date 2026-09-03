@@ -9,7 +9,7 @@ services:
     # build:
     #   context: ..
     #   dockerfile: docker/Dockerfile
-    image: suncean/englishpod-web:0.1.0
+    image: suncean/englishpod-web:0.1.2
     container_name: englishpod-web
     ports:
       - "8787:8787"

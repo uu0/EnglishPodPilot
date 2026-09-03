@@ -1147,6 +1147,7 @@
   }
   // 播完一课后的自动续播：单课循环重播当前；列表循环顺序下一课（末尾回开头）；
   // 随机播放随机选一课（不立即重复当前）；off 模式不自动播放
+  // 切到下一课后需显式续播：仅改 audio.src 不会自动开始（此前 bug：界面切到新课但音频停在 0）
   function playNext() {
     if (!current || view.length === 0) return;
     var i = view.indexOf(current);
@@ -1169,7 +1170,21 @@
     } else {
       j = -1; // off：播完当前课停止，不自动续播
     }
-    if (j >= 0 && j < view.length) selectLesson(view[j].id);
+    if (j >= 0 && j < view.length) {
+      selectLesson(view[j].id);
+      // 定时恰好到点则不再续播（由 tickSleep 收尾停止），其余情况等待新音轨就绪后自动开播
+      if (sleepEndAt > 0 && Date.now() >= sleepEndAt) return;
+      var startNext = function () {
+        if (sleepEndAt > 0 && Date.now() >= sleepEndAt) return;
+        audio.play().catch(function () {});
+        $("playBtn").textContent = "⏸";
+      };
+      if (audio.readyState >= 1) startNext();
+      else audio.addEventListener("loadedmetadata", function onMeta() {
+        audio.removeEventListener("loadedmetadata", onMeta);
+        startNext();
+      });
+    }
   }
 
   // ---------- 定时停止播放 ----------
