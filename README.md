@@ -1,6 +1,6 @@
 # English Pod 学习器
 
-> **当前版本：v0.1.2**（语义化版本管理：bug 修复 0.1.x、新功能 0.2.0，发布方式见「十二、版本与发布」）
+> **当前版本：v0.2.0**（语义化版本管理：bug 修复 0.2.x、新功能 0.3.0，发布方式见「十二、版本与发布」）
 
 纯本地网页应用：后端 Python 标准库 + 前端原生 JS，通过 Docker Compose 部署。
 音频/字幕/词典等**全部离线资源存放在宿主机文件夹中**，compose 文件里写明路径挂载进容器读取，**不打进镜像**——换机器、升级代码都无需重新上传资料。
@@ -30,7 +30,8 @@ englishpod/
 │   ├── audio/                ← 课程音频（约 5.2G，1197 个 mp3，原 englishpod_all，体积大不入库需自行下载）
 │   ├── srt/  txt/  pdf/      ← 字幕 / 文本 / 讲义 PDF（按课号对应音频，已随仓库分发）
 │   ├── dict/                 ← 离线英汉词典 ECDICT：ecdict.csv（66M）+ ecdict.db（索引，可删，体积大不入库需自行下载）
-│   └── appdata/              ← 多用户数据（账号/进度/生词本/学习时长）app.db，容器首次启动自动生成
+│   ├── appdata/              ← 多用户数据（账号/进度/生词本/学习时长）app.db，容器首次启动自动生成
+│   └── tts/                  ← 文章朗读 TTS 音频（0.2.0+）：POST /api/v1/articles 推送文章时自动生成，见「十三」
 ├── server.py                 ← 应用代码（Python 标准库，零依赖，Docker 与本地共用）
 ├── webapp/                   ← 前端页面
 ├── docker/                   ← Docker 部署专属：Dockerfile + docker-compose.yml（在 docker/ 目录内执行 compose）
@@ -78,6 +79,22 @@ englishpod/
 | ![首次部署：创建管理员](screenshots/01-setup.png) | ![课程列表：467 课、搜索、筛选、进度](screenshots/02-lessons.png) |
 | 播放器（音频 + 字幕） | 管理后台·学习工作台 |
 | ![播放器：标签页、字幕时间轴、A-B 复读](screenshots/03-player.png) | ![管理后台：每用户学习时长/完成课程/生词数](screenshots/04-admin.png) |
+
+### v0.3.0 UI 重构（2026-10-08）
+
+前端按全新 5-tab 播放器架构重写：
+
+- **正在播放**（默认主屏）：只显示课程正文，点词查词、译文开关、收藏生词
+- **课程**：卡片列表，全部/未播/已播筛选 + 等级筛选 + 搜索（右上角放大镜）
+- **生词 / 统计 / 我的**：生词本、播放统计（累计播放、播完课程、学习分钟、播放排行）、个人设置
+- **Apple Music 风格悬浮播放条**：毛玻璃圆角，底部常驻；左侧 ⏮ ▶ ⏭，右侧四个快捷键——中/英（译文开关）、⏱（睡眠定时 15/30/60/90 分钟）、🔁（循环：关/单曲/列表）、☰（接下来播放弹层）
+- **图标**：播放控制全部换 SVG 矢量图标（Material 风格），不再用 emoji
+- **导航**：移动端各页顶栏右侧列表图标→下拉菜单；桌面端左侧边栏可折叠（0.32s 平滑动画）
+- **循环**：关 → 单曲循环 → 列表循环三态切换
+
+| 正在播放（正文） | 课程列表 | 悬浮播放条 |
+|---|---|---|
+| ![正在播放页](screenshots/05-now-playing.png) | ![课程页](screenshots/06-courses.png) | ![悬浮播放条](screenshots/07-miniplayer.png) |
 
 ## 四、飞牛部署步骤（数据放宿主机文件夹，compose 写路径读取）
 
@@ -284,3 +301,51 @@ python3 server.py --data ./data --host 0.0.0.0 --port 8787
   git log v0.1.0..v0.2.0 --oneline
   ```
 - 使用者侧升级/回滚见「四·5 版本更新与回滚」：compose 锁版本号，升级改大号自动拉取、回滚改回旧号。
+
+## 十三、文章朗读 TTS 与更新 API（0.2.0 新功能）
+
+给英文精读站提供"按句朗读"能力：服务端收到文章（英文句子数组）后，用**豆包语音合成**逐句生成 MP3，存到 `data/tts/`，播放器按句取音频、逐句高亮。
+
+### 配置（用户自己填，密钥不进仓库）
+
+| 环境变量 | 说明 |
+|---|---|
+| `DOUBAO_TTS_API_KEY` | **必需**。豆包语音合成 API Key（火山引擎控制台申请）。为空时更新 API 返回 503。 |
+| `DOUBAO_TTS_VOICE` | 可选，默认 `en_female_dacey_uranus_bigtts`（英文女声 Dacey）。可换任意 `seed-tts-2.0` 音色 ID。 |
+| `DOUBAO_TTS_RESOURCE_ID` | 可选，默认 `seed-tts-2.0`。 |
+| `EP_INGEST_TOKEN` | **必需**。更新 API 的 Bearer 鉴权 token，请填强随机字符串。为空时更新 API 拒绝服务。 |
+
+> 也可写进 `config.json`（字段 `doubao_tts_api_key` / `doubao_tts_voice` / `ep_ingest_token`，模板见 `template/config.example.json`）；优先级：**环境变量 > config.json**。`config.json` 含密钥，勿提交 git。
+>
+> Docker 部署：在 compose 的 `environment` 段填（已预留占位行），或改宿主机 `config.json` 后 `docker compose restart`。
+
+### API
+
+**推送文章**（需鉴权）：
+
+```bash
+curl -X POST http://飞牛IP:8787/api/v1/articles \
+  -H "Authorization: Bearer <EP_INGEST_TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{"title":"...","source_url":"https://...","sentences":["First sentence.","Second sentence."]}'
+# → {"article_id":"20261007220000_a1b2c3","sentence_count":2,"audio_base_url":"/media/tts/20261007220000_a1b2c3"}
+```
+
+- 限制：单篇最多 300 句，单句最多 2000 字符；body 上限 1MB。
+- 服务端逐句合成（每句一次 TTS 请求），写入 `data/tts/<article_id>/s000.mp3…` 与同目录 `manifest.json`；中途失败返回 502 并清理半成品。
+- 未鉴权 → 401；`EP_INGEST_TOKEN` 未配置 → 503；`DOUBAO_TTS_API_KEY` 未配置 → 503。
+
+**读取文章 manifest**（公开，给精读站播放器用）：
+
+```bash
+curl http://飞牛IP:8787/api/v1/articles/20261007220000_a1b2c3
+# → {"article_id":...,"title":...,"source_url":...,"sentence_count":...,
+#     "voice":...,"created_at":...,"audio_base_url":"/media/tts/<id>",
+#     "sentences":[{"index":0,"text":"...","audio_url":"/media/tts/<id>/s000.mp3"},...]}
+```
+
+**取单句音频**：直接 GET `audio_url`（如 `/media/tts/<id>/s000.mp3`），走既有 `/media/` 通道，支持 Range 拖动。
+
+### 升级到 0.2.0
+
+compose 的 `image:` 已声明为 `suncean/englishpod-web:0.2.0`。**该镜像需先构建并推送到 Docker Hub**（`git tag v0.2.0 && git push origin v0.2.0` 触发 Actions 自动构建），否则 `up -d` 会拉取失败（不影响正在运行的旧容器）。急用可本地构建：取消 compose 里 `build:` 段注释后 `docker compose up -d --build`。数据卷（audio/srt/txt/pdf/dict/appdata/tts）都在宿主机，换镜像不丢数据。
